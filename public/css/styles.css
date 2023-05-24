@@ -1,3 +1,8 @@
-#timer{
-    width:50px;
+body{
+    background-color: purple;
+    color:white;
+}
+#image-shrink{
+    width:20%;
+    float:right;
 }

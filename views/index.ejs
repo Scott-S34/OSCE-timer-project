@@ -4,17 +4,35 @@
 
     </head>
 
-
+<script>
+    var numberOfStations = document.getElementByid("stations").value;
+    console.log(numberOfStations);
+</script>
     <body>
         <%- include('_navbar') %>
 
 
-        <img src = "images/clock.jfif">
+        <img id = "image-shrink" src = "images/timer.jpg" alt  = "timer">
         <header>
             <h2>Welcome to the OSCE exam timer</h2>
         </header>
-    
+
+
+        <br>
+        <br>
+
+        <%- include ('_variables') %>
+        
+
+
         <a href = "/room1">Room1 route</a>
+        
+        
+        <footer>
+            <%- include ('_footer') %>
+        </footer>
+        
+        
     </body>
 
 
