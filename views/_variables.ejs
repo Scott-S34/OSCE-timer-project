@@ -1,10 +1,25 @@
 <p> Number of possible stations for this Exam; <%= stations %> </p>
+<form id = "details"> 
         <label for = "stations">Enter number of stations - </label>
-        <input type = "text" name="stations" id = "stations" value= "">  
+        <input type = "text" name="stations" id = "stations" value= "">  <br><br>
         
-        <br></br>
-        <br></br>
+        <br>
+        <br>
 
-        <p> Minutes allowed for each Station; <%= timePerStation %> </p>
+        <p> Minutes allowed for each Station; <%= timePerStationInMinutes %> </p>
         <label for = "minutes">How many minutes is each station?</label>
-        <input type = "text" name="minutes" id = "minutes" value=""> <br></br>
+        <input type = "text" name="minutes" id = "minutes" value=""> <br><br>
+
+        <br>
+        <br>
+
+
+        <p> Warning about how many minutes remain each station; <%= warningInMinutes %> </p>
+        <label for = "warning">Warning when </label>
+        <input type = "text" name="warning" id = "warning" value=""> <p class = "finished-message">minutes remain </p> <br><br>
+
+        <br>
+        <br>
+
+      
+</form>

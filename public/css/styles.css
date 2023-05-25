@@ -6,3 +6,12 @@ body{
     width:20%;
     float:right;
 }
+
+#title{
+    text-align:center;
+}
+
+.finished-message{
+    display:inline;
+}
+
