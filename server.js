@@ -39,6 +39,11 @@ app.get('/room2', (req, res) => {
   res.render('room2', {title: 'room2', capacity: 64  });
 });
 
+//define a route for the timer page
+app.get('/timer-page', (req, res) => {
+  res.render('timer-page', {title: 'The Timer'});
+})
+
 
 
 app.listen(port, () => {

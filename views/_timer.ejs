@@ -1,51 +1,31 @@
+<div id = "timer">
+    
+</div>
+
+
+
 <script>
 
-function shwow(a){
-    return a;
-}
+var timer;
+var ele = document.getElementById('timer');
 
-console.log(shwow(1));
-//     // let limit = 60;
+    (function () {
+        var seconds = 30;
+        timer = setInterval(()=> {
+            ele.innerHTML = '00:' + seconds;
+            seconds --;
+        }, 1000);
+    })()
 
-//     let timeout = setInterval(() => {
-//          if(limit == 0){
-//              alert("time over");
-//        } else {
-//            if(limit < 10){
-//                  limit = 0+ "" + limit;
-//              }
-//         }
-//          $("#timer").html("00: " + limit);
+    function stopTimer(){
+        clearInterval(timer);
+    }
 
-//         limit --;
-//      }, 1000);
+    
+    if(seconds === 0){
+        stopTimer();
+    }
 
 
-
-// function startTimer(duration, display) {
-//     var timer = duration, minutes, seconds;
-//     setInterval(function () {
-//         minutes = parseInt(timer / 60, 10)
-//         seconds = parseInt(timer % 60, 10);
-
-//         minutes = minutes < 10 ? "0" + minutes : minutes;
-//         seconds = seconds < 10 ? "0" + seconds : seconds;
-
-//         display.textContent = minutes + ":" + seconds;
-
-//         if (--timer < 0) {
-//             timer = 0;
-//             // timer = duration; // uncomment this line to reset timer automatically after reaching 0
-//         }
-//     }, 1000);
-// }
-
-// window.onload = function () {
-//     var time = 60 / 2, // your time in seconds here
-//         display = document.querySelector('#safeTimerDisplay');
-//     startTimer(time, display);
-// };
 
 </script>
-
-<!--Thanks codepen and s overflow-->
