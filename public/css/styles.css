@@ -1,11 +1,9 @@
 body{
     background-color: purple;
     color:white;
+    margin:25px;
 }
-#image-shrink{
-    width:20%;
-    float:right;
-}
+
 
 #title{
     text-align:center;
@@ -13,5 +11,16 @@ body{
 
 .finished-message{
     display:inline;
+}
+
+#timer{
+    text-align:center;
+    size: 3000pt;
+}
+
+
+#submission{
+    float:right;
+    margin-top:50px;
 }
 

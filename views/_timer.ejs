@@ -4,18 +4,23 @@
 
 
 
+
 <script>
 
 var timer;
-var ele = document.getElementById('timer');
+var element = document.getElementById('timer');
 
     (function () {
-        var seconds = 30;
+        var form = document.getElementById("timer");
+        var sseconds = form.search;
+        var seconds = 60;
+        console.log(seconds);
         timer = setInterval(()=> {
-            ele.innerHTML = '00:' + seconds;
+            element.innerHTML = '00:' + seconds;
             seconds --;
-        }, 1000);
-    })()
+            if(seconds < 10){
+                element.innerHTML = "00:0" + seconds;
+            }
 
     function stopTimer(){
         clearInterval(timer);
@@ -24,7 +29,8 @@ var ele = document.getElementById('timer');
     
     if(seconds === 0){
         stopTimer();
-    }
+    }}, 1000);
+    })()
 
 
 

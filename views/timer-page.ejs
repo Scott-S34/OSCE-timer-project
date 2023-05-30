@@ -3,11 +3,53 @@
         <%- include('_head') %>
     </head>
 
+    <script>
+        function getNumberOfStations(){
+            var stationNums = document.forms["details"]["stations"].value;
+            return stationNums;
+        }
+
+        function getMinutesPerStation(){
+            var minutes = document.forms["details"]["minutes"].value;
+            return minutes;
+        }
+    </script>
 
     <body>
     </body>
-    <P>TIMER</P>
+    <h2>TIMER</h2>
 
+
+        <p>
+            The number of stations is 
+        </p>
+        <script>
+            function getNumberOfStations(){
+                var stationNums = document.forms["details"]["stations"].value;
+                return stationNums;
+            }
+           getNumberOfStations()
+        </script>
+               
+
+        <p>
+            The Amount of minutes per station is 
+        </p>
+
+        <script>
+      
+        function getMinutesPerStation(){
+            var minutes = document.forms["details"]["minutes"].value;
+            return minutes;
+        }
+        getMinutesPerStation();
+
+        </script>
+
+        <br>
+        <br>
+
+        <p>Station 1</p>
         <%- include('_timer') %>
 
         <footer>

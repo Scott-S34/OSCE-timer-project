@@ -1,13 +1,13 @@
 <script>
-    function submitDetails(){
+    function verifyDetails(){
 
     var stationNums = document.forms["details"]["stations"].value;
     var minutes = document.forms["details"]["minutes"].value;
     var minutesRemaining = document.forms["details"]["warning"].value;
-    var minutesReading = document.forms["optional-details"]["reading"].value;
-    var secondsSwitching = document.forms["optional-details"]["switching"].value;
+    var minutesReading = document.forms["details"]["reading"].value;
+    var secondsSwitching = document.forms["details"]["switching"].value;
 
-    var a = document.createElement('a'); 
+ 
 
     if(stationNums == "" || stationNums > 15 || stationNums < 1){
         alert("The exam must have betweeen 1 and 15 stations!");
@@ -44,4 +44,4 @@
 
 </script>
 
-<button type = "button" onclick = "submitDetails()"> Submit Details & Start</button>
+<button type = "button" onclick = "verifyDetails()"> Verify Details</button>
