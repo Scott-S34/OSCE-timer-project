@@ -45,6 +45,11 @@ app.get('/timer-page', (req, res) => {
 })
 
 
+app.get('/error-page', (req, res) =>{
+  res.render('error-page', {title: Error});
+})
+
+
 
 app.listen(port, () => {
   console.log('Server running at http:// ' + port)

@@ -3,55 +3,29 @@
         <%- include('_head') %>
     </head>
 
-    <script>
-        function getNumberOfStations(){
-            var stationNums = document.forms["details"]["stations"].value;
-            return stationNums;
-        }
-
-        function getMinutesPerStation(){
-            var minutes = document.forms["details"]["minutes"].value;
-            return minutes;
-        }
-    </script>
 
     <body>
-    </body>
+    
+
     <h2>TIMER</h2>
 
-
-        <p>
-            The number of stations is 
-        </p>
-        <script>
-            function getNumberOfStations(){
-                var stationNums = document.forms["details"]["stations"].value;
-                return stationNums;
-            }
-           getNumberOfStations()
-        </script>
-               
-
-        <p>
-            The Amount of minutes per station is 
-        </p>
-
-        <script>
-      
-        function getMinutesPerStation(){
-            var minutes = document.forms["details"]["minutes"].value;
-            return minutes;
-        }
-        getMinutesPerStation();
-
-        </script>
+    <h1 style = "text-align:center;">Good Luck!</h1>
 
         <br>
         <br>
 
-        <p>Station 1</p>
+        <script>
+            alert("The examination has started");
+        </script>
+
+        <p id = "summary"></p>
+        
+        <%- include('_exam-details') %>
+        
         <%- include('_timer') %>
 
+
+        <h2>Station 1</h2>
         <footer>
             <%- include ('_footer') %>
         </footer>   

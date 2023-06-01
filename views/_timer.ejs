@@ -1,3 +1,9 @@
+<a id = "gettingTime" href = "/timer-page"></a>
+
+
+
+<br><br>
+
 <div id = "timer">
     
 </div>
@@ -7,19 +13,30 @@
 
 <script>
 
+var minutes = pairs[1].substr(pairs[1].length-1).toString();
+if(minutes.slice("=", ",").length > 1){
+    minutes = pairs[1].substr(pairs[1].length-2).toString();
+}
+
+var minutesInInt = parseInt(minutes);
+
+
+// alert(minutes)
+// alert(pairs)
+// alert(minutesInInt)
+// alert(stationsAsInt);
+
+
 var timer;
 var element = document.getElementById('timer');
 
     (function () {
-        var form = document.getElementById("timer");
-        var sseconds = form.search;
-        var seconds = 60;
-        console.log(seconds);
+
         timer = setInterval(()=> {
-            element.innerHTML = '00:' + seconds;
-            seconds --;
-            if(seconds < 10){
-                element.innerHTML = "00:0" + seconds;
+            element.innerHTML = '00:' + minutesInInt;
+            minutesInInt --;
+            if(minutesInInt < 10){
+                element.innerHTML = "00:0" + minutesInInt;
             }
 
     function stopTimer(){

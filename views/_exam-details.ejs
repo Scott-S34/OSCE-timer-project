@@ -1,0 +1,30 @@
+<a id = "gettingTime" href = "/timer-page"></a>
+
+
+<script>
+
+
+let query = document.location.search;
+
+var pairs = query.split('&');
+
+
+var stations = pairs[0].substr(pairs[0].length-1).toString();
+if(stations.slice("=", ",").length !== 1){
+    stations = pairs[0].substr(pairs[0].length-2).toString();
+}
+
+var stationsAsInt = parseInt(stations);
+
+
+var minutes = pairs[1].substr(pairs[1].length-1).toString();
+if(minutes.slice("=", ",").length > 1){
+    minutes = pairs[1].substr(pairs[1].length-2).toString();
+}
+
+var minutesInInt = parseInt(minutes);
+
+document.getElementById("summary").innerHTML = "Number of Stations in this exam is " + stations +
+". The amount of time per station is " + minutes + " minutes!"
+
+</script>
