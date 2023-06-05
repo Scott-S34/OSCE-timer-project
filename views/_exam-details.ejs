@@ -24,7 +24,21 @@ if(minutes.slice("=", ",").length > 1){
 
 var minutesInInt = parseInt(minutes);
 
+
+ //isolating the value entered for the warning as its own string in a unique variable
+var minutesWarning = pairs[2].substr(pairs[2].length-1).toString();
+if(minutesWarning.slice("=", ",").length > 1){
+    minutesWarning = pairs[2].substr(pairs[2].length-2).toString();
+}
+
+    //the type is converted to an int for comparing and output
+    var minutesWarningInt = parseInt(minutesWarning);
+
+
+
+
 document.getElementById("summary").innerHTML = "Number of Stations in this exam is " + stations +
-". The amount of time per station is " + minutes + " minutes!"
+". The amount of time per station is " + minutes + " minute(s)! A warning will go off when " + minutesWarning 
++ " minute(s) remain."
 
 </script>

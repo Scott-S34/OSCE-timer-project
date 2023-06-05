@@ -33,3 +33,13 @@ body{
     font-weight: bold ;
 }
 
+#timer{
+    font-size:66px;
+}
+
+#warningIndicator {
+    font-size:46px;
+    text-align:center;
+    color:red;
+
+}
