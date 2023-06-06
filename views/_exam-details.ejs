@@ -9,30 +9,21 @@ let query = document.location.search;
 var pairs = query.split('&');
 
 
-var stations = pairs[0].substr(pairs[0].length-1).toString();
-if(stations.slice("=", ",").length !== 1){
-    stations = pairs[0].substr(pairs[0].length-2).toString();
-}
+var stations = pairs[0].slice(pairs[0].indexOf("=") + 1).toString();
 
 var stationsAsInt = parseInt(stations);
 
 
-var minutes = pairs[1].substr(pairs[1].length-1).toString();
-if(minutes.slice("=", ",").length > 1){
-    minutes = pairs[1].substr(pairs[1].length-2).toString();
-}
+var minutes = pairs[1].slice(pairs[1].indexOf("=") + 1).toString();
 
 var minutesInInt = parseInt(minutes);
 
 
  //isolating the value entered for the warning as its own string in a unique variable
-var minutesWarning = pairs[2].substr(pairs[2].length-1).toString();
-if(minutesWarning.slice("=", ",").length > 1){
-    minutesWarning = pairs[2].substr(pairs[2].length-2).toString();
-}
+var minutesWarning = pairs[2].slice(pairs[2].indexOf("=") +1).toString();
 
-    //the type is converted to an int for comparing and output
-    var minutesWarningInt = parseInt(minutesWarning);
+//the type is converted to an int for comparing and output
+var minutesWarningInt = parseInt(minutesWarning);
 
 
 

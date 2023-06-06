@@ -1,0 +1,50 @@
+
+<script>
+
+
+
+var switching = pairs[4].slice(pairs[4].indexOf("=") + 1).toString();
+alert(switching);
+    
+var switchingInInt = parseInt(switching);
+    
+var switchingTime = switchingInInt * 60;
+    
+    
+    
+    
+var switchingTimer;
+var switchingTimerEle = document.getElementById('switchingTimer');
+    
+switchingTimer = setInterval(updateSwitchingTimer, 1000);
+    
+function updateSwitchingTimer(){
+    var switchingMinutesInTimer = Math.floor(switchingTime / 60);
+    var switchingSecondsInTimer = switchingTime % 60;
+    if (switchingSecondsInTimer < 10 && switchingMinutesInTimer < 10){
+        switchingTimerEle.innerHTML = "0"+ switchingMinutesInTimer + ":0" + switchingSecondsInTimer;
+    }else if(switchingSecondsInTimer < 10){
+        switchingTimerEle.innerHTML = switchingMinutesInTimer + ":0" + switchingSecondsInTimer;
+    } else if(switchingMinutesInTimer < 10){
+        switchingTimerEle.innerHTML = "0"+ switchingMinutesInTimer + ":" + switchingSecondsInTimer;
+    } else{
+        switchingTimerEle.innerHTML = switchingMinutesInTimer + ":" + switchingSecondsInTimer;
+    }
+    switchingTime--;
+    
+    
+function stopSwitchingTimer(){
+    clearInterval(switchingTimer);
+}
+    
+if(switchingTime < 0){
+        stopSwitchingTimer();
+        alert("Switching time is over! You should be in your new stations now" );
+}}
+    
+    
+    
+    
+    
+</script>
+    

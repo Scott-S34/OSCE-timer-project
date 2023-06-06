@@ -20,8 +20,8 @@
             } else if(minutesRemaining >= minutes) {
                 alert("The warning must be less than the amount of time alloted for each station!")
             } else{
-                if(minutesReading >= 10 || minutesReading < 0 ){
-                    alert("Students are allowed 0-10 minutes for secnario reading!");
+                if(minutesReading > 10 || minutesReading < 0 ){
+                    alert("Students are allowed 0-10 minutes for scenario reading!");
                 } else{
                     if(secondsSwitching > 120 || secondsSwitching < 0){
                      alert("Students are allowed between 0 and 120 seconds to switch to the next station")       

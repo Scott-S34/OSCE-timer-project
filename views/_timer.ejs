@@ -3,43 +3,62 @@
 
 
 <br><br>
+<div id = "readingTimer">
+<%- include('_readingTimer') %>
+</div>
+
+<br>
 
 <div id = "timer">
-    
+    <audio src = "audio/notification-bell.wav"controls autoplay>
+
+    </audio>
 </div>
 
 <br>
 <div id = "warningIndicator">
-
 </div>
+
+<br>
+
+<div id = "switchingTimer">
+<%- include('_switchingTimer') %>
+</div>
+
+<br>
 
 
 
 
 <script>
-var minutes = pairs[1].substr(pairs[1].length-1).toString();
-if(minutes.slice("=", ",").length > 1){
-    minutes = pairs[1].substr(pairs[1].length-2).toString();
-}
+
+
+
+
+
+
+
+/////MAIN TIMER////////////
+
+var minutes = pairs[1].slice(pairs[1].indexOf("=") + 1).toString();
 
 var minutesInInt = parseInt(minutes);
-
+//alert(minutesInInt);
 var time = minutesInInt * 60;
-
 
 
 var timer;
 var timerElement = document.getElementById('timer');
 
-timer = setInterval(updateTimer, 1000);
+timer = setInterval(updateTimer, 100);
 alert("Station started");
 
 function updateTimer() {
 
-    minutesInTimer = Math.floor(time / 60);
+    var minutesInTimer = Math.floor(time / 60);
     var secondsInTimer = time % 60;
     if (secondsInTimer < 10 && minutesInTimer < 10){
-            timerElement.innerHTML = "0"+ minutesInTimer + ":0" + secondsInTimer
+            timerElement.innerHTML = "0"+ minutesInTimer + ":0" + secondsInTimer;
         }else if(secondsInTimer < 10){
             timerElement.innerHTML = minutesInTimer + ":0" + secondsInTimer;
         } else if(minutesInTimer < 10){
@@ -51,15 +70,13 @@ function updateTimer() {
     
 
 
+
     //isolating the value entered for the warning as its own string in a unique variable
-    var minutesWarning = pairs[2].substr(pairs[2].length-1).toString();
-    if(minutesWarning.slice("=", ",").length > 1){
-        minutesWarning = pairs[2].substr(pairs[2].length-2).toString();
-    }
+    
+    var minutesWarning = pairs[2].slice(pairs[2].indexOf("=") + 1).toString();
 
     //the type is converted to an int for comparing and output
     var minutesWarningInt = parseInt(minutesWarning);
-
 
     var warningElement = document.getElementById("warningIndicator");
 
@@ -81,11 +98,19 @@ function updateTimer() {
         clearInterval(timer);
     }
 
+        
+
     //if the seconds and minutes are both 0 the function is called to stop the timer - so no negative numbers in timer
     if(time < 0){
         stopTimer();
+
+
         alert("Station finished!" );
+        var bellEle = document.getElementById("bell").play();
+        //var bell = new Audio('public/audio/notification-bell.wav');
+        //bell.play();
         alert("Examination finished!");
+
     }}
 
 
