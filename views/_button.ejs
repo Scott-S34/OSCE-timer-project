@@ -9,13 +9,13 @@
 
  
 
-    if(stationNums == "" || stationNums > 15 || stationNums < 1){
+    if(stationNums > 15 || stationNums < 1){
         alert("The exam must have betweeen 1 and 15 stations!");
     } else{
-        if(minutes == "" || minutes > 30 || minutes < 1 ){
+        if(minutes > 30 || minutes < 1 ){
             alert("Each station lasts between 1 and 30 minutes!");
         } else {
-            if(minutesRemaining == "" || minutesRemaining > 20  || minutesRemaining < 1 ){
+            if(minutesRemaining > 20  || minutesRemaining < 1 ){
                 alert("The warning must be when there are 1-20 minutes left!");
             } else if(minutesRemaining >= minutes) {
                 alert("The warning must be less than the amount of time alloted for each station!")

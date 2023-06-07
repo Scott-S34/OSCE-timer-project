@@ -13,10 +13,6 @@ body{
     display:inline;
 }
 
-#timer{
-    text-align:center;
-    size: 3000pt;
-}
 
 
 #submission{
@@ -33,8 +29,10 @@ body{
     font-weight: bold ;
 }
 
-#timer{
+#timer, #readingTimer, #switchingTimer{
     font-size:66px;
+    text-align:center;
+    size: 3000pt;
 }
 
 #warningIndicator {

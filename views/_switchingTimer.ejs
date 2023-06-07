@@ -1,14 +1,19 @@
 
-<script>
+<div id = "switchingTimer">
+    </div>
+    
+<br>
 
+
+<script>
 
 
 var switching = pairs[4].slice(pairs[4].indexOf("=") + 1).toString();
 alert(switching);
-    
+
 var switchingInInt = parseInt(switching);
     
-var switchingTime = switchingInInt * 60;
+var switchingTime = switchingInInt;
     
     
     
@@ -27,9 +32,10 @@ function updateSwitchingTimer(){
         switchingTimerEle.innerHTML = switchingMinutesInTimer + ":0" + switchingSecondsInTimer;
     } else if(switchingMinutesInTimer < 10){
         switchingTimerEle.innerHTML = "0"+ switchingMinutesInTimer + ":" + switchingSecondsInTimer;
-    } else{
+    }  else{
         switchingTimerEle.innerHTML = switchingMinutesInTimer + ":" + switchingSecondsInTimer;
     }
+
     switchingTime--;
     
     

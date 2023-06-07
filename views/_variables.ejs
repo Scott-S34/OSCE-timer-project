@@ -6,7 +6,7 @@
         <i class="fa fa-sharp fa-solid fa-asterisk fa-beat" style = "color:red"></i>
         
         <br><br>
-        <br>
+        
         <br>
 
         <p> Minutes allowed for each Station; <%= timePerStationInMinutes %> </p>
@@ -15,7 +15,7 @@
         <i class="fa fa-sharp fa-solid fa-asterisk fa-beat" style = "color:red"></i>
         
         <br><br>
-        <br>
+        
         <br>
 
 
@@ -24,23 +24,22 @@
         <input type = "text" name="warning" id = "warning" value="" required> <p class = "finished-message">minutes remain </p> 
         <i class="fa fa-sharp fa-solid fa-asterisk fa-beat" style = "color:red"></i>
         <br><br>
-        <br>
-        <br>
+
+        <br><br>
 
 
         <p>Time to read through each scenario options; <%= minutesToRead %> </p> 
         <label for = "reading">How much time to read through the scenario before starting (in minutes)? </label>
-        <input type = "text" name="reading" class = "reading" value="">  <br><br>
-        
-        <br>
+        <input type = "text" name="reading" class = "reading" value="" required>  
+        <i class="fa fa-sharp fa-solid fa-asterisk fa-beat" style = "color:red"></i>
+        <br><br>
         <br>
         
         
         <p> Time to switch between each station; <%= secondsToSwitchStation %> </p>
         <label for = "switching">How much time should be given to switch to the next station? </label>
-        <input type = "text" name="switching" id = "switching" value=""> <br><br>
-        
-        <br>
+        <input type = "text" name="switching" id = "switching" value="" required> 
+        <i class="fa fa-sharp fa-solid fa-asterisk fa-beat" style = "color:red"></i>
         <br>
         
         <input id  = "submission" type = "submit" value = "Submit Details & Start">

@@ -1,11 +1,11 @@
 
+<div id = "readingTimer">
+    </div>
+    
+<br>
+
 <script>
 
-
-// var reading = pairs[3].substr(pairs[3].length-2).toString();
-// if(reading.slice("=", ",").length === 1){
-//     if(reading.slice("=", ",").length === 1){
-// if(reading.slice("=", ",").length === 1){
 
 
 //reading = pairs[3].substr(pairs[3].length-1).toString();
@@ -25,17 +25,20 @@ var readingTimerEle = document.getElementById('readingTimer');
 readingTimer = setInterval(updateReadingTimer, 1000);
 
 function updateReadingTimer(){
+    if(reading.equals("")){
+        readingTimerEle.innerHTML = "Reading timer not set";
+    } 
     var readingMinutesInTimer = Math.floor(readingTime / 60);
     var readingSecondsInTimer = readingTime % 60;
     if (readingSecondsInTimer < 10 && readingMinutesInTimer < 10){
-            readingTimerEle.innerHTML = "0"+ readingMinutesInTimer + ":0" + readingSecondsInTimer;
-        }else if(readingSecondsInTimer < 10){
-            readingTimerEle.innerHTML = readingMinutesInTimer + ":0" + readingSecondsInTimer;
-        } else if(readingMinutesInTimer < 10){
-            readingTimerEle.innerHTML = "0"+ readingMinutesInTimer + ":" + readingSecondsInTimer;
-        } else{
-            readingTimerEle.innerHTML = readingMinutesInTimer + ":" + readingSecondsInTimer;
-        }
+        readingTimerEle.innerHTML = "0"+ readingMinutesInTimer + ":0" + readingSecondsInTimer;
+    }else if(readingSecondsInTimer < 10){
+        readingTimerEle.innerHTML = readingMinutesInTimer + ":0" + readingSecondsInTimer;
+    } else if(readingMinutesInTimer < 10){
+        readingTimerEle.innerHTML = "0"+ readingMinutesInTimer + ":" + readingSecondsInTimer;
+    } else{
+        readingTimerEle.innerHTML = readingMinutesInTimer + ":" + readingSecondsInTimer;
+    }
     readingTime--;
 
 
@@ -46,9 +49,8 @@ function updateReadingTimer(){
     if(readingTime < 0){
         stopReadingTimer();
         alert("Reading time is over!" );
-
+        //updateTimer();
     }}
-
 
 
 </script>

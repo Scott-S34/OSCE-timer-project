@@ -3,16 +3,11 @@
 
 
 <br><br>
-<div id = "readingTimer">
-<%- include('_readingTimer') %>
-</div>
-
-<br>
 
 <div id = "timer">
-    <audio src = "audio/notification-bell.wav"controls autoplay>
-
-    </audio>
+    <!-- <audio id = "bellId" controls autoplay>
+        <source src = "audio/notification-bell.wav" type = "audio/wav">
+    </audio> -->
 </div>
 
 <br>
@@ -21,21 +16,10 @@
 
 <br>
 
-<div id = "switchingTimer">
-<%- include('_switchingTimer') %>
-</div>
-
-<br>
-
 
 
 
 <script>
-
-
-
-
-
 
 
 /////MAIN TIMER////////////
@@ -98,19 +82,20 @@ function updateTimer() {
         clearInterval(timer);
     }
 
-        
-
+    
+    function playAudio(){
+        var bell = new Audio("public/audio/notification-bell.wav");
+        bell.play();
+    }
+    
     //if the seconds and minutes are both 0 the function is called to stop the timer - so no negative numbers in timer
     if(time < 0){
         stopTimer();
-
-
+        //var bell = document.getElementById("bellId").play();
+        playAudio();
         alert("Station finished!" );
-        var bellEle = document.getElementById("bell").play();
-        //var bell = new Audio('public/audio/notification-bell.wav');
-        //bell.play();
         alert("Examination finished!");
-
+        
     }}
 
 
