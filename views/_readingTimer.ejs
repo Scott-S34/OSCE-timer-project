@@ -1,10 +1,30 @@
 
+
 <div id = "readingTimer">
+
     </div>
     
 <br>
+<button type = "button" onclick = "loadTimer()">Move to exam timer</button>
 
 <script>
+
+
+
+
+
+function loadTimer(){
+    var xhttp = new XHttpRequest();
+    xhttp.onreadystatechange = function(){
+        if(this.readyState == 4 && this.status == 200){
+          updateTimer()
+        }
+    };
+    xhttp:open("GET", "_timer.ejs", true);
+    xhttp.send();
+}
+
+
 
 
 
@@ -18,16 +38,13 @@ var readingTime = readingInInt * 60;
 
 
 
-
 var readingTimer;
 var readingTimerEle = document.getElementById('readingTimer');
 
 readingTimer = setInterval(updateReadingTimer, 1000);
 
+
 function updateReadingTimer(){
-    if(reading.equals("")){
-        readingTimerEle.innerHTML = "Reading timer not set";
-    } 
     var readingMinutesInTimer = Math.floor(readingTime / 60);
     var readingSecondsInTimer = readingTime % 60;
     if (readingSecondsInTimer < 10 && readingMinutesInTimer < 10){
@@ -50,6 +67,7 @@ function updateReadingTimer(){
         stopReadingTimer();
         alert("Reading time is over!" );
         //updateTimer();
+        loadTimer();
     }}
 
 

@@ -7,7 +7,7 @@
     var minutesReading = document.forms["details"]["reading"].value;
     var secondsSwitching = document.forms["details"]["switching"].value;
 
- 
+
 
     if(stationNums > 15 || stationNums < 1){
         alert("The exam must have betweeen 1 and 15 stations!");
@@ -24,7 +24,7 @@
                     alert("Students are allowed 0-10 minutes for scenario reading!");
                 } else{
                     if(secondsSwitching > 120 || secondsSwitching < 0){
-                     alert("Students are allowed between 0 and 120 seconds to switch to the next station")       
+                     alert("Students are allowed between 0 and 120 seconds to switch to the next station.")       
                     } else{
                         alert("Details submitted. Processing timer");
                 }

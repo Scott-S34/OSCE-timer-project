@@ -44,13 +44,13 @@ app.get('/timer-page', (req, res) => {
   res.render('timer-page', {title: 'The Timer'});
 })
 
-
+//define a route for the error page
 app.get('/error-page', (req, res) =>{
   res.render('error-page', {title: Error});
 })
 
 
-
+//message that is the displayed in the console once the server has been booted up
 app.listen(port, () => {
   console.log('Server running at http:// ' + port)
 });
