@@ -5,9 +5,7 @@
 <br><br>
 
 <div id = "timer">
-    <!-- <audio id = "bellId" controls autoplay>
-        <source src = "audio/notification-bell.wav" type = "audio/wav">
-    </audio> -->
+    
 </div>
 
 <br>
@@ -34,8 +32,11 @@ var time = minutesInInt * 60;
 var timer;
 var timerElement = document.getElementById('timer');
 
-timer = setInterval(updateTimer, 100);
+
 alert("Station started");
+
+var bell = new Audio("audio/notification-bell.wav");
+timer = setInterval(updateTimer, 200);
 
 function updateTimer() {
 
@@ -51,9 +52,6 @@ function updateTimer() {
             timerElement.innerHTML = minutesInTimer + ":" + secondsInTimer;
         }
     time--;
-    
-
-
 
     //isolating the value entered for the warning as its own string in a unique variable
     
@@ -80,19 +78,14 @@ function updateTimer() {
         clearInterval(timer);
     }
 
-    
-    function playAudio(){
-        var bell = new Audio("public/audio/notification-bell.wav");
-        bell.play();
-    }
-    
+
     //if the seconds and minutes are both 0 the function is called to stop the timer - so no negative numbers in timer
     if(time < 0){
         stopTimer();
+        bell.play();
+        alert("Station finished!");
         //var bell = document.getElementById("bellId").play();
-        playAudio();
-        alert("Station finished!" );
-        alert("Examination finished!");
+        //alert("Examination finished!");
         
     }}
 

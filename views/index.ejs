@@ -13,7 +13,8 @@
 
         
         <header>
-            <h1 id = "title">Welcome to the OSCE exam timer</h1>
+            <h1 id = "title">Welcome to the Objective Structured 
+                Clinical Examination (OSCE) timer</h1>
 
             <i class="fa fa-solid fa-clock fa-bounce fa-2xl"></i>
             <i class="fa fa-solid fa-clock fa-bounce fa-2xl" style = "float:right;"></i>
@@ -31,7 +32,11 @@
         
 
         <br>
-    <%- include('_bell-test') %>
+    <!--%- include('_bell-test') %-->
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="scripts/bell.js"></script>
+    
+        <button id="test">Press Me</button>
 
         <%- include ('_variables') %>
 

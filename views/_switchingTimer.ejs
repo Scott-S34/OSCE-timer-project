@@ -1,7 +1,7 @@
 
 <div id = "switchingTimer">
     </div>
-    
+
 <br>
 
 
@@ -21,6 +21,7 @@ var switchingTime = switchingInInt;
 var switchingTimer;
 var switchingTimerEle = document.getElementById('switchingTimer');
     
+var switchingBell = new Audio("audio/school-bell.wav");
 switchingTimer = setInterval(updateSwitchingTimer, 1000);
     
 function updateSwitchingTimer(){
@@ -45,6 +46,7 @@ function stopSwitchingTimer(){
     
 if(switchingTime < 0){
         stopSwitchingTimer();
+        switchingBell.play();
         alert("Switching time is over! You should be in your new stations now" );
 }}
     

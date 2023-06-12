@@ -1,28 +1,37 @@
 
+<button type = "button"> hide other timers</button>
 
-<div id = "readingTimer">
-
+ <div id = "readingTimer">
     </div>
     
 <br>
-<button type = "button" onclick = "loadTimer()">Move to exam timer</button>
 
 <script>
 
 
 
+// $(document).ready(function(){
+//     $("button").click(function(){
+//         $("timer" ,"switchingTimer").toggle();
+//     });
+// });
 
+// function loadTimer(){
+//     var xhr = new HMLHTTPRequest();
+//     xhr.open('GET', "/timer", false);
+//     xhr.onload = function(){
+//         if (xhr.status == 200){
+//             console.log("success");
+//             let timer = JSON.parse(this.response)
+//             console.log(timer);
+//             const timerAppear = document.createElement('div');
+//             timerAppear.innerHTML = updateTimer();
+//             document.getElementById("readingTimer").appendChild(timerAppear);
+            
 
-function loadTimer(){
-    var xhttp = new XHttpRequest();
-    xhttp.onreadystatechange = function(){
-        if(this.readyState == 4 && this.status == 200){
-          updateTimer()
-        }
-    };
-    xhttp:open("GET", "_timer.ejs", true);
-    xhttp.send();
-}
+//         }
+//     }
+// }
 
 
 
@@ -41,6 +50,7 @@ var readingTime = readingInInt * 60;
 var readingTimer;
 var readingTimerEle = document.getElementById('readingTimer');
 
+var readingBell = new Audio("audio/casino-bells.wav");
 readingTimer = setInterval(updateReadingTimer, 1000);
 
 
@@ -65,9 +75,10 @@ function updateReadingTimer(){
 
     if(readingTime < 0){
         stopReadingTimer();
+        readingBell.play();
         alert("Reading time is over!" );
         //updateTimer();
-        loadTimer();
+        //loadTimer();
     }}
 
 
