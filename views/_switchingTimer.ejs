@@ -1,5 +1,7 @@
 
+<!-- <button onclick = "toggleSwitchTimer()">Toggle switching timer once main timer hits 0</button> -->
 <div id = "switchingTimer">
+    
     </div>
 
 <br>
@@ -23,6 +25,15 @@ var switchingTimerEle = document.getElementById('switchingTimer');
     
 var switchingBell = new Audio("audio/school-bell.wav");
 switchingTimer = setInterval(updateSwitchingTimer, 1000);
+
+function toggleSwitchTimer(){
+    var switchTimer = document.getElementById("switchingTimer");
+    if(switchTimer.style.display === "block"){
+        switchTimer.style.display = "none";
+    } else {
+        switchTimer.style.display = "block";
+    }
+}
     
 function updateSwitchingTimer(){
     var switchingMinutesInTimer = Math.floor(switchingTime / 60);

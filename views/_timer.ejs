@@ -4,6 +4,7 @@
 
 <br><br>
 
+<!-- <button onclick = "toggleExamTimer()">Toggle main timer once reading timer hits 0</button> -->
 <div id = "timer">
     
 </div>
@@ -36,7 +37,17 @@ var timerElement = document.getElementById('timer');
 alert("Station started");
 
 var bell = new Audio("audio/notification-bell.wav");
-timer = setInterval(updateTimer, 200);
+timer = setInterval(updateTimer, 1000);
+
+function toggleExamTimer(){
+    var examTimer = document.getElementById("timer");
+    if(examTimer.style.display === "block"){
+        examTimer.style.display = "none";
+    } else {
+        examTimer.style.display = "block";
+
+    }
+}
 
 function updateTimer() {
 

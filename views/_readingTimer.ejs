@@ -1,7 +1,7 @@
 
-<button type = "button"> hide other timers</button>
-
+<!--<button onclick = "toggleReadTimer()">Toggle reading timer once switching timer hits 0</button> -->
  <div id = "readingTimer">
+   
     </div>
     
 <br>
@@ -50,9 +50,19 @@ var readingTime = readingInInt * 60;
 var readingTimer;
 var readingTimerEle = document.getElementById('readingTimer');
 
-var readingBell = new Audio("audio/casino-bells.wav");
+var readingBell = new Audio("audio/happy-bells.wav");
 readingTimer = setInterval(updateReadingTimer, 1000);
 
+
+function toggleReadTimer(){
+    var readTimer = document.getElementById("readingTimer");
+    if(readTimer.style.display === "none"){
+        readTimer.style.display = "block";
+    } else {
+        readTimer.style.display = "none";
+    }
+}
+   
 
 function updateReadingTimer(){
     var readingMinutesInTimer = Math.floor(readingTime / 60);

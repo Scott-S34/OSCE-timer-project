@@ -35,6 +35,15 @@ body{
     size: 3000pt;
 }
 
+
+#readingTimer{
+    display:block;
+}
+
+#timer, #switchingTimer{
+    display:none;
+}
+
 #warningIndicator {
     font-size:46px;
     text-align:center;

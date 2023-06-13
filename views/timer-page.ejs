@@ -1,6 +1,7 @@
 <html>
     <head>
         <%- include('_head') %>
+        <script src="scripts/timers.js"></script> 
         
     </head>
 
@@ -19,16 +20,47 @@
             alert("The examination has started");
         </script>
 
-        <p id = "summary"></p>
+        <p id = "summary">
+
+        </p>
 
         
-        <%- include('_exam-details') %>
+        <%- include('_exam-details') %>  
+        <button onclick = "toggleReadTimer()">Toggle reading timer once switching timer hits 0</button> 
+        <!-- <%- include('_readingTimer') %>-->
+        
+        <div id = "readingTimer">
+   
+        </div>
+        <br>
+        <br>    
 
-        <%- include('_readingTimer') %>
+        <!-- <%- include('_timer') %>-->
+        <button onclick = "toggleExamTimer()">Toggle main timer once reading timer hits 0</button>
+        <div id = "timer">
+    
+        </div>
+        
+        <br>
+        <br>
 
-        <%- include('_timer') %>
+        <div id = "warningIndicator">
+        </div>
+        
+        <br>
+        <br>
 
-        <%- include('_switchingTimer') %>
+
+        <!-- <%- include('_switchingTimer') %>-->
+
+        <button onclick = "toggleSwitchTimer()">Toggle switching timer once main timer hits 0</button>
+        <div id = "switchingTimer">
+    
+        </div>
+    
+    <br>
+
+
  
 
         <h2>Station 1</h2>
