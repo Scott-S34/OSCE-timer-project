@@ -1,44 +1,7 @@
 
-
-
-
-
-
-
-
-
 //////toggling appearance of timers/////
 
 
-function toggleReadTimer(){
-    var readTimer = document.getElementById("readingTimer");
-    if(readTimer.style.display === "none"){
-        readTimer.style.display = "block";
-    } else {
-        readTimer.style.display = "none";
-        stopReadingTimer();
-    }
-}
-function toggleExamTimer(){
-    var examTimer = document.getElementById("timer");
-    if(examTimer.style.display === "block"){
-        examTimer.style.display = "none";
-        stopTimer();
-    } else {
-        examTimer.style.display = "block";
-    }
-}
-
-
-function toggleSwitchTimer(){
-    var switchTimer = document.getElementById("switchingTimer");
-    if(switchTimer.style.display === "block"){
-        switchTimer.style.display = "none";
-        stopSwitchingTimer();
-    } else {
-        switchTimer.style.display = "block";
-    }
-}
 
 
 
@@ -50,8 +13,7 @@ function toggleSwitchTimer(){
 
 
 
-
-////////Reading Timer///////
+/////////////////Reading Timer////////////
 
 //reading = pairs[3].substr(pairs[3].length-1).toString();
 var reading = pairs[3].slice(pairs[3].indexOf("=") + 1).toString();
@@ -92,6 +54,16 @@ function updateReadingTimer(){
         clearInterval(readingTimer);
     }
 
+    // var readTimer = document.getElementById("readingTimer");
+    //     if(readTimer.style.display === "none"){
+    //         readTimer.style.display = "block";
+    //     } else {
+    //         readTimer.style.display = "none";
+    //         stopReadingTimer();
+    //     }
+
+
+
     if(readingTime < 0){
         stopReadingTimer();
         readingBell.play();
@@ -100,7 +72,7 @@ function updateReadingTimer(){
     }}
 
 
-///////////MAIN TIMER/////////////////
+///////////////MAIN TIMER/////////////////
 
 var minutes = pairs[1].slice(pairs[1].indexOf("=") + 1).toString();
 
@@ -161,17 +133,27 @@ function updateTimer() {
         clearInterval(timer);
     }
 
+    var delay = readingTime * 1000;
+    setTimeout(updateTimer(),delay);
+    
+
+    var examTimer = document.getElementById("timer");
+    if(examTimer.style.display === "block"){
+        examTimer.style.display = "none";
+        stopTimer();
+    } else {
+         examTimer.style.display = "block";
+    }
 
     //if the seconds and minutes are both 0 the function is called to stop the timer - so no negative numbers in timer
     if(time < 0){
         stopTimer();
-        stopReadingTimer();
         bell.play();
         alert("Station finished!");
         //var bell = document.getElementById("bellId").play();
-        //alert("Examination finished!");
-        
-    }}
+    }} 
+
+
 
 /////////////////////////SWITCHING TIMER//////////////////////////
 
@@ -215,6 +197,13 @@ function updateSwitchingTimer(){
     function stopSwitchingTimer(){
         clearInterval(switchingTimer);
     }
+        var switchTimer = document.getElementById("switchingTimer");
+        if(switchTimer.style.display === "block"){
+            switchTimer.style.display = "none";
+            stopSwitchingTimer();
+        } else {
+            switchTimer.style.display = "block";
+        }
         
 
 if(switchingTime < 0){
