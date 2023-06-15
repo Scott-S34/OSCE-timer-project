@@ -1,0 +1,37 @@
+<!-- <a id = "gettingTime" href = "/reading-timer-page"></a> -->
+<a id = "gettingTime" href = "/main-timer-page"></a>
+<!-- <a id = "gettingTime" href = "/switching-timer-page"></a> -->
+
+
+<script>
+
+
+let query = document.location.search;
+
+var pairs = query.split('&');
+
+
+var stations = pairs[0].slice(pairs[0].indexOf("=") + 1).toString();
+
+var stationsAsInt = parseInt(stations);
+
+
+var minutes = pairs[1].slice(pairs[1].indexOf("=") + 1).toString();
+
+var minutesInInt = parseInt(minutes);
+
+
+ //isolating the value entered for the warning as its own string in a unique variable
+var minutesWarning = pairs[2].slice(pairs[2].indexOf("=") +1).toString();
+
+//the type is converted to an int for comparing and output
+var minutesWarningInt = parseInt(minutesWarning);
+
+
+
+
+document.getElementById("summary").innerHTML = "Number of Stations in this exam is " + stations +
+". The amount of time per station is " + minutes + " minute(s)! A warning will go off when " + minutesWarning 
++ " minute(s) remain."
+
+</script>
