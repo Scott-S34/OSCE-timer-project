@@ -30,6 +30,9 @@ function toggleSwitchTimer(){
 }
 
 
+setTimeout(updateReadingTimer, 5000);
+
+
 
 
 /////////////////Reading Timer////////////
@@ -50,8 +53,9 @@ var readingTimerEle = document.getElementById('readingTimer');
 var readingBell = new Audio("audio/happy-bells.wav");
 
 var readingTimer;
-readingTimer = setInterval(updateReadingTimer, 1000);
 
+readingTimer = setInterval(updateReadingTimer, 1000);
+setTimeout(readingTimer, 5000);
 
 
 function updateReadingTimer(){
@@ -114,7 +118,7 @@ var bell = new Audio("audio/notification-bell.wav");
 
 
 var timer;
-timer = setInterval(updateTimer, 100);
+timer = setInterval(updateTimer, 1000);
 
 function updateTimer() {
     var minutesInTimer = Math.floor(time / 60);

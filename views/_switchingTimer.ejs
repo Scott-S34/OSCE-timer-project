@@ -1,3 +1,4 @@
+<a id = "gettingTime" href = "/switching-timer-page"></a>
 
 <!-- <button onclick = "toggleSwitchTimer()">Toggle switching timer once main timer hits 0</button> -->
 <div id = "switchingTimer">
@@ -26,14 +27,14 @@ var switchingTimerEle = document.getElementById('switchingTimer');
 var switchingBell = new Audio("audio/school-bell.wav");
 switchingTimer = setInterval(updateSwitchingTimer, 1000);
 
-function toggleSwitchTimer(){
-    var switchTimer = document.getElementById("switchingTimer");
-    if(switchTimer.style.display === "block"){
-        switchTimer.style.display = "none";
-    } else {
-        switchTimer.style.display = "block";
-    }
-}
+// function toggleSwitchTimer(){
+//     var switchTimer = document.getElementById("switchingTimer");
+//     if(switchTimer.style.display === "block"){
+//         switchTimer.style.display = "none";
+//     } else {
+//         switchTimer.style.display = "block";
+//     }
+// }
     
 function updateSwitchingTimer(){
     var switchingMinutesInTimer = Math.floor(switchingTime / 60);
@@ -59,6 +60,10 @@ if(switchingTime < 0){
         stopSwitchingTimer();
         switchingBell.play();
         alert("Switching time is over! You should be in your new stations now" );
+        // var theOtherTimer = document.createElement("a");
+        // theOtherTimer.href ="/reading-timer-page";
+        //theNextTimer.innerHTML = "To the next station";
+        
 }}
     
     

@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <%- include('_head') %>
+        <script src="scripts/timers.js"></script> 
+        
+    </head>
+
+
+    <body>
+    
+
+    <h2>TIMER</h2>
+
+    <h1 style = "text-align:center;">Good Luck!</h1>
+
+        <br>
+        <br>
+
+        <script>
+            alert("The examination has started");
+        </script>
+
+        <p id = "summary">
+
+        </p>
+         <%- include('_exam-details') %>
+
+
+         <button onclick = "toggleReadTimer()">Toggle reading timer once switching timer hits 0</button> 
+        <%- include('_readingTimer') %>
+        
+        <div id = "readingTimer">
+   
+        </div>
+        <br>
+        <br> 
+
+        <button onclick = "toggleMainTimer()">Toggle reading timer once switching timer hits 0</button>  
+        <%- include('_timer') %> 
+        <div id = "timer">
+
+        </div>  
+        <br>
+        <br>
+        <div id = "warningIndicator">
+
+        </div>
+        <br>
+        <br>
+        
+        <button onclick = "toggleSwitchTimer()">Toggle this when it hits 0</button>
+        <%- include('_switchingTimer') %> 
+        <div id = "switchingTimer">
+            
+        </div>
+
+    </body>
+</html>
