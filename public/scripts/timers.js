@@ -30,7 +30,7 @@ function toggleSwitchTimer(){
 }
 
 
-setTimeout(updateReadingTimer, 5000);
+
 
 
 
@@ -54,8 +54,12 @@ var readingBell = new Audio("audio/happy-bells.wav");
 
 var readingTimer;
 
-readingTimer = setInterval(updateReadingTimer, 1000);
-setTimeout(readingTimer, 5000);
+function countReadingTimer(){
+    readingTimer = setInterval(updateReadingTimer, 1000);
+    return readingTimer;
+}
+
+
 
 
 function updateReadingTimer(){
@@ -78,6 +82,8 @@ function updateReadingTimer(){
     }
 
 
+
+
     // var readTimer = document.getElementById("readingTimer");
     //     if(readTimer.style.display === "none"){
     //         readTimer.style.display = "block";
@@ -90,6 +96,7 @@ function updateReadingTimer(){
 
     if(readingTime < 0){
         stopReadingTimer();
+        readingTimerEle.innerHTML = "TIME'S UP!!!";
         readingBell.play();
         alert("Reading time is over!" );
 
@@ -118,7 +125,12 @@ var bell = new Audio("audio/notification-bell.wav");
 
 
 var timer;
-timer = setInterval(updateTimer, 1000);
+
+function triggerTimer(){
+    timer = setInterval(updateTimer, 1000);
+    return timer;
+}
+
 
 function updateTimer() {
     var minutesInTimer = Math.floor(time / 60);
@@ -145,29 +157,9 @@ function updateTimer() {
     var warningElement = document.getElementById("warningIndicator");
 
 
+    
 
-    //AUDIO SAMPLE DECLARATIONS GO HERE
-
-    var oneMinuteLeft = new Audio("audio/osce-recordings/one.wav");
-    var twoMinutesLeft = new Audio("audio/osce-recordings/two.wav");
-    var threeMinutesLeft = new Audio("audio/osce-recordings/three.wav");
-    var fourMinutesLeft = new Audio("audio/osce-recordings/four.wav");
-    var fiveMinutesLeft = new Audio("audio/osce-recordings/five.wav");
-    var sixMinutesLeft = new Audio("audio/osce-recordings/six.wav");
-    var sevenMinutesLeft = new Audio("audio/osce-recordings/seven.wav");
-    var eightMinutesLeft = new Audio("audio/osce-recordings/eight.wav");
-    var ninesMinutesLeft = new Audio("audio/osce-recordings/nine.wav");
-    var tenMinutesLeft = new Audio("audio/osce-recordings/ten.wav");
-    var elevenMinutesLeft = new Audio("audio/osce-recordings/eleven.wav");
-    var twelveMinutesLeft = new Audio("audio/osce-recordings/twelve.wav");
-    var thirteenMinutesLeft = new Audio("audio/osce-recordings/thirteen.wav");
-    var fourteenMinutesLeft = new Audio("audio/osce-recordings/fourteen.wav");
-    var fifteenMinutesLeft = new Audio("audio/osce-recordings/fifteen.wav");
-    var sixteenMinutesLeft = new Audio("audio/osce-recordings/sixteen.wav");
-    var seventeenMinutesLeft = new Audio("audio/osce-recordings/seventeen.wav");
-    var eighteenMinutesLeft = new Audio("audio/osce-recordings/eighteen.wav");
-    var nineteenMinutesLeft = new Audio("audio/osce-recordings/nineteen.wav");
-    var twentyMinutesLeft = new Audio("audio/osce-recordings/twenty.wav");
+    
 
 
     //SWITCH STATEMENT PLUGGING IN THE RIGHT RECORDINGS WITH THE CORRESPONDING VISUAL WARNINGS GOES BELOW;
@@ -186,85 +178,105 @@ function updateTimer() {
 
         switch(minutesWarningInt){
             case 1: 
-            warningElement.innerHTML = minutesWarningInt + " minute left for this station!!";
-            oneMinuteLeft.play();
-            break;
+                var oneMinuteLeft = new Audio("audio/osce-recordings/one.wav");
+                warningElement.innerHTML = minutesWarningInt + " minute left for this station!!";
+                oneMinuteLeft.play();
+                break;
             case 2:
-            warningElement.innerHTML = minutesWarningInt + " minutes left for this station!!";
-            twoMinutesLeft.play();
-            break;
+                var twoMinutesLeft = new Audio("audio/osce-recordings/two.wav");
+                warningElement.innerHTML = minutesWarningInt + " minutes left for this station!!";
+                twoMinutesLeft.play();
+                break;
             case 3:
-            warningElement.innerHTML = minutesWarningInt + " minutes left for this station!!";
-            threeMinutesLeft.play();
-            break;
+                var threeMinutesLeft = new Audio("audio/osce-recordings/three.wav");
+                warningElement.innerHTML = minutesWarningInt + " minutes left for this station!!";
+                threeMinutesLeft.play();
+                break;
             case 4:
-            warningElement.innerHTML = minutesWarningInt + " minutes left for this station!!";
-            fourMinutesLeft.play();
-            break;
+                var fourMinutesLeft = new Audio("audio/osce-recordings/four.wav");
+                warningElement.innerHTML = minutesWarningInt + " minutes left for this station!!";
+                fourMinutesLeft.play();
+                break;
             case 5:
-            warningElement.innerHTML = minutesWarningInt + " minutes left for this station!!";
-            fiveMinutesLeft.play();
-            break;
+                var fiveMinutesLeft = new Audio("audio/osce-recordings/five.wav");
+                warningElement.innerHTML = minutesWarningInt + " minutes left for this station!!";
+                fiveMinutesLeft.play();
+                break;
             case 6:
-            warningElement.innerHTML = minutesWarningInt + " minutes left for this station!!";
-            sixMinutesLeft.play();
-            break;
+                var sixMinutesLeft = new Audio("audio/osce-recordings/six.wav");
+                warningElement.innerHTML = minutesWarningInt + " minutes left for this station!!";
+                sixMinutesLeft.play();
+                break;
             case 7:
-            warningElement.innerHTML = minutesWarningInt + " minutes left for this station!!";
-            sevenMinutesLeft.play();
-            break;
+                var sevenMinutesLeft = new Audio("audio/osce-recordings/seven.wav");
+                warningElement.innerHTML = minutesWarningInt + " minutes left for this station!!";
+                sevenMinutesLeft.play();
+                break;
             case 8:
-            warningElement.innerHTML = minutesWarningInt + " minutes left for this station!!";
-            eightMinutesLeft.play();
-            break;
+                var eightMinutesLeft = new Audio("audio/osce-recordings/eight.wav");
+                warningElement.innerHTML = minutesWarningInt + " minutes left for this station!!";
+                eightMinutesLeft.play();
+                break;
             case 9:
-            warningElement.innerHTML = minutesWarningInt + " minutes left for this station!!";
-            ninesMinutesLeft.play();
-            break;
+                var ninesMinutesLeft = new Audio("audio/osce-recordings/nine.wav");
+                warningElement.innerHTML = minutesWarningInt + " minutes left for this station!!";
+                ninesMinutesLeft.play();
+                break;
             case 10:
-            warningElement.innerHTML = minutesWarningInt + " minutes left for this station!!";
-            tenMinutesLeft.play();
-            break;
+                var tenMinutesLeft = new Audio("audio/osce-recordings/ten.wav");
+                warningElement.innerHTML = minutesWarningInt + " minutes left for this station!!";
+                tenMinutesLeft.play();
+                break;
             case 11:
-            warningElement.innerHTML = minutesWarningInt + " minutes left for this station!!";
-            elevenMinutesLeft.play();
-            break;
+                var elevenMinutesLeft = new Audio("audio/osce-recordings/eleven.wav");
+                warningElement.innerHTML = minutesWarningInt + " minutes left for this station!!";
+                elevenMinutesLeft.play();
+                break;
             case 12:
-            warningElement.innerHTML = minutesWarningInt + " minutes left for this station!!";
-            twelveMinutesLeft.play();
-            break;
+                var twelveMinutesLeft = new Audio("audio/osce-recordings/twelve.wav");
+                warningElement.innerHTML = minutesWarningInt + " minutes left for this station!!";
+                twelveMinutesLeft.play();
+                break;
             case 13:
-            warningElement.innerHTML = minutesWarningInt + " minutes left for this station!!";
-            thirteenMinutesLeft.play();
-            break;
+                var thirteenMinutesLeft = new Audio("audio/osce-recordings/thirteen.wav");
+                warningElement.innerHTML = minutesWarningInt + " minutes left for this station!!";
+                thirteenMinutesLeft.play();
+                break;
             case 14:
-            warningElement.innerHTML = minutesWarningInt + " minutes left for this station!!";
-            fourteenMinutesLeft.play();
-            break;
+                var fourteenMinutesLeft = new Audio("audio/osce-recordings/fourteen.wav");
+                warningElement.innerHTML = minutesWarningInt + " minutes left for this station!!";
+                fourteenMinutesLeft.play();
+                break;
             case 15:
-            warningElement.innerHTML = minutesWarningInt + " minutes left for this station!!";
-            fifteenMinutesLeft.play();
-            break;
+                var fifteenMinutesLeft = new Audio("audio/osce-recordings/fifteen.wav");
+                warningElement.innerHTML = minutesWarningInt + " minutes left for this station!!";
+                fifteenMinutesLeft.play();
+                break;
             case 16:
-            warningElement.innerHTML = minutesWarningInt + " minutes left for this station!!";
-            sixteenMinutesLeft.play();
-            break;
+                var sixteenMinutesLeft = new Audio("audio/osce-recordings/sixteen.wav");
+                warningElement.innerHTML = minutesWarningInt + " minutes left for this station!!";
+                sixteenMinutesLeft.play();
+                break;
             case 17:
-            warningElement.innerHTML = minutesWarningInt + " minutes left for this station!!";
-            seventeenMinutesLeft.play();
-            break;
+                var seventeenMinutesLeft = new Audio("audio/osce-recordings/seventeen.wav");
+                warningElement.innerHTML = minutesWarningInt + " minutes left for this station!!";
+                seventeenMinutesLeft.play();
+                break;
             case 18:
-            warningElement.innerHTML = minutesWarningInt + " minutes left for this station!!";
-            eighteenMinutesLeft.play();
-            break;
+                var eighteenMinutesLeft = new Audio("audio/osce-recordings/eighteen.wav");
+                warningElement.innerHTML = minutesWarningInt + " minutes left for this station!!";
+                eighteenMinutesLeft.play();
+                break;
             case 19:
-            warningElement.innerHTML = minutesWarningInt + " minutes left for this station!!";
-            nineteenMinutesLeft.play();
-            break;
+                var nineteenMinutesLeft = new Audio("audio/osce-recordings/nineteen.wav");
+                warningElement.innerHTML = minutesWarningInt + " minutes left for this station!!";
+                nineteenMinutesLeft.play();
+                break;
             case 20:
-            warningElement.innerHTML = minutesWarningInt + " minutes left for this station!!";
-            twentyMinutesLeft.play();
-            break;
+                var twentyMinutesLeft = new Audio("audio/osce-recordings/twenty.wav");
+                warningElement.innerHTML = minutesWarningInt + " minutes left for this station!!";
+                twentyMinutesLeft.play();
+                break;
             default:
                 console.log("not working");
                 break;
@@ -291,6 +303,7 @@ function updateTimer() {
     //if the seconds and minutes are both 0 the function is called to stop the timer - so no negative numbers in timer
     if(time < 0){
         stopTimer();
+        timerElement.innerHTML = "TIME'S UP !!!"
         bell.play();
         alert("Station finished!");
         //var bell = document.getElementById("bellId").play();
@@ -300,8 +313,7 @@ function updateTimer() {
 
 /////////////////////////SWITCHING TIMER//////////////////////////
 
-var switchingTimer
-switchingTimer = setInterval(updateSwitchingTimer, 1000);
+
 
 
 var switching = pairs[4].slice(pairs[4].indexOf("=") + 1).toString();
@@ -320,6 +332,11 @@ var switchingBell = new Audio("audio/school-bell.wav");
 //switchingTimer = setInterval(updateSwitchingTimer, 1000);
 
 
+var switchingTimer;
+function triggerSwitchingTimer(){
+    switchingTimer = setInterval(updateSwitchingTimer, 1000);
+    return switchingTimer;
+}
     
 function updateSwitchingTimer(){
     var switchingMinutesInTimer = Math.floor(switchingTime / 60);
@@ -342,6 +359,7 @@ function updateSwitchingTimer(){
         
         if(switchingTime < 0){
         stopSwitchingTimer();
+        switchingTimerEle.innerHTML = "TIME'S UP!!!"
         switchingBell.play();
         stopTimer();
         alert("Switching time is over! You should be in your new stations now" );

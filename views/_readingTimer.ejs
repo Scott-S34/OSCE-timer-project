@@ -54,8 +54,8 @@ var readingTimerEle = document.getElementById('readingTimer');
 var readingBell = new Audio("audio/happy-bells.wav");
 
 
-readingTimer = setInterval(updateReadingTimer, 1000);
-setTimeout(readingTimer, 5000);
+
+// setTimeout(readingTimer, 5000);
 
 // function toggleReadTimer(){
 //     var readTimer = document.getElementById("readingTimer");
@@ -65,8 +65,11 @@ setTimeout(readingTimer, 5000);
 //         readTimer.style.display = "none";
 //     }
 // }
+function countReadingTimer(){
+    readingTimer = setInterval(updateReadingTimer, 1000);
+    return readingTimer;
+}
 
-   
 
 function updateReadingTimer(){
     var readingMinutesInTimer = Math.floor(readingTime / 60);
@@ -80,8 +83,10 @@ function updateReadingTimer(){
     } else{
         readingTimerEle.innerHTML = readingMinutesInTimer + ":" + readingSecondsInTimer;
     }
+    console.log(readingTime)
     readingTime--;
 
+   
 
     function stopReadingTimer(){
         clearInterval(readingTimer);
@@ -90,14 +95,16 @@ function updateReadingTimer(){
     var nextTimer;
     if(readingTime < 0){
         stopReadingTimer();
+        readingTimerEle.innerHTML = "TIME'S UP "
         readingBell.play();
         alert("Reading time is over!" );
         //updateTimer();
         //loadTimer();
-        nextTimer = document.getElementById("nextTimer");
-        nextTimer.href ="/main-timer-page";
-        nextTimer.innerHTML = "To the exam timer";
+        // nextTimer = document.getElementById("nextTimer");
+        // nextTimer.href ="/main-timer-page";
+        // nextTimer.innerHTML = "To the exam timer";
     }}
+    
 
 
 </script>

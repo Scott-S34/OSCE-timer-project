@@ -1,7 +1,9 @@
 <html>
     <head>
         <%- include('_head') %>
-        <script src="scripts/timers.js"></script> 
+        <script src="scripts/timers.js"></script>
+        <script src = "scripts/progression.js"></script> 
+        
         
     </head>
 
@@ -26,7 +28,9 @@
          <%- include('_exam-details') %>
 
 
-         <button onclick = "toggleReadTimer()">Toggle reading timer once switching timer hits 0</button> 
+        <!-- <button onclick = "toggleReadTimer()">Toggle reading timer once switching timer hits 0</button>  -->
+
+        <button onclick = "countReadingTimer()">Start Reading Timer</button>
         <%- include('_readingTimer') %>
         
         <div id = "readingTimer">
@@ -35,7 +39,8 @@
         <br>
         <br> 
 
-        <button onclick = "toggleMainTimer()">Toggle reading timer once switching timer hits 0</button>  
+        <!-- <button onclick = "toggleMainTimer()">Toggle reading timer once switching timer hits 0</button>   -->
+        <button onclick = "triggerTimer()">Start Exam Timer</button>
         <%- include('_timer') %> 
         <div id = "timer">
 
@@ -48,11 +53,30 @@
         <br>
         <br>
         
-        <button onclick = "toggleSwitchTimer()">Toggle this when it hits 0</button>
+        <!-- <button onclick = "toggleSwitchTimer()">Toggle this when it hits 0</button> -->
+        <button onclick = "triggerSwitchingTimer()">Start Switching Timer</button>
         <%- include('_switchingTimer') %> 
         <div id = "switchingTimer">
             
         </div>
+
+        <br>
+        <br>
+
+        <div id = "progression-buttons">
+            <a href = "/main-timer-page">
+                <button  id = "nextStation" onclick = "showNextStation()">Next Station</button>
+            </a>
+            <br>
+            <br>
+            <br>
+            <a href =  "/index">
+                <button id  = "end" onclick = "finishExam()">Finish Examination</button>
+            </a>
+
+        </div>
+        
+
 
     </body>
 </html>

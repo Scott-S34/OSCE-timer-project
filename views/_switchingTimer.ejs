@@ -25,7 +25,11 @@ var switchingTimer;
 var switchingTimerEle = document.getElementById('switchingTimer');
     
 var switchingBell = new Audio("audio/school-bell.wav");
-switchingTimer = setInterval(updateSwitchingTimer, 1000);
+
+function triggerSwitchingTimer(){
+    switchingTimer = setInterval(updateSwitchingTimer, 1000);
+    return switchingTimer;
+}
 
 // function toggleSwitchTimer(){
 //     var switchTimer = document.getElementById("switchingTimer");
@@ -58,6 +62,7 @@ function stopSwitchingTimer(){
     
 if(switchingTime < 0){
         stopSwitchingTimer();
+        switchingTimerEle.innerHTML = "TIME'S UP!!!"
         switchingBell.play();
         alert("Switching time is over! You should be in your new stations now" );
         // var theOtherTimer = document.createElement("a");
