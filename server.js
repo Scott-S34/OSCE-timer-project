@@ -57,7 +57,7 @@ app.get('/switching-timer-page', (req, res) => {
 
 //define a route for the error page
 app.get('/error-page', (req, res) =>{
-  res.render('error-page', {title: "Error found"});
+  res.render('error-page', {title: "Error! Wrong Way"});
 })
 
 
