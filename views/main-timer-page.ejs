@@ -19,7 +19,7 @@
         <br>
 
         <script>
-            alert("The examination has started");
+            alert("Station Started");
         </script>
 
         <p id = "summary">
@@ -30,53 +30,41 @@
 
         <!-- <button onclick = "toggleReadTimer()">Toggle reading timer once switching timer hits 0</button>  -->
 
-        <button onclick = "countReadingTimer()">Start Reading Timer</button>
+        <button class = "timer-buttons" id = "read-trigger" onclick = "countReadingTimer()">Start Reading Timer</button>
         <%- include('_readingTimer') %>
         
-        <div id = "readingTimer">
-   
-        </div>
-        <br>
-        <br> 
 
         <!-- <button onclick = "toggleMainTimer()">Toggle reading timer once switching timer hits 0</button>   -->
-        <button onclick = "triggerTimer()">Start Exam Timer</button>
+        <button class = "timer-buttons" id = "trigger" onclick = "triggerTimer()">Start Examination Timer</button>
         <%- include('_timer') %> 
-        <div id = "timer">
-
-        </div>  
-        <br>
-        <br>
-        <div id = "warningIndicator">
-
-        </div>
-        <br>
-        <br>
+    
         
         <!-- <button onclick = "toggleSwitchTimer()">Toggle this when it hits 0</button> -->
-        <button onclick = "triggerSwitchingTimer()">Start Switching Timer</button>
+        <button class = "timer-buttons" id = "switch-trigger" onclick = "triggerSwitchingTimer()">Start Switching Timer</button>
         <%- include('_switchingTimer') %> 
-        <div id = "switchingTimer">
-            
-        </div>
 
         <br>
         <br>
 
         <div id = "progression-buttons">
-            <a href = "/main-timer-page">
-                <button  id = "nextStation" onclick = "showNextStation()">Next Station</button>
-            </a>
+        
+            <button  id = "nextStation" onclick = "showNextStation()">Next Station</button>
+
             <br>
             <br>
             <br>
-            <a href =  "/index">
+            <a href =  "/">
                 <button id  = "end" onclick = "finishExam()">Finish Examination</button>
             </a>
-
         </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+       
         
-
-
+        <%- include('_footer') %>
+       
     </body>
 </html>

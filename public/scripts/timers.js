@@ -36,8 +36,11 @@ function toggleSwitchTimer(){
 
 
 /////////////////Reading Timer////////////
-
+var query = document.location.search; 
+var pairs = query.split('&');
 //reading = pairs[3].substr(pairs[3].length-1).toString();
+
+
 var reading = pairs[3].slice(pairs[3].indexOf("=") + 1).toString();
 //alert(reading);
 
@@ -96,7 +99,7 @@ function updateReadingTimer(){
 
     if(readingTime < 0){
         stopReadingTimer();
-        readingTimerEle.innerHTML = "TIME'S UP!!!";
+        readingTimerEle.innerHTML = "TIME'S UP!";
         readingBell.play();
         alert("Reading time is over!" );
 
@@ -117,7 +120,7 @@ var time = minutesInInt * 60;
 var timerElement = document.getElementById('timer');
 
 
-alert("Station started");
+alert("The Examination has started");
 
 var bell = new Audio("audio/notification-bell.wav");
 //timer = setInterval(updateTimer, 1000);
@@ -359,7 +362,7 @@ function updateSwitchingTimer(){
         
         if(switchingTime < 0){
         stopSwitchingTimer();
-        switchingTimerEle.innerHTML = "TIME'S UP!!!"
+        switchingTimerEle.innerHTML = "TIME'S UP!!"
         switchingBell.play();
         stopTimer();
         alert("Switching time is over! You should be in your new stations now" );

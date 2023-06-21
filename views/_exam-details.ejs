@@ -6,7 +6,7 @@
 <script>
 
 
-let query = document.location.search;
+var query = document.location.search;
 
 var pairs = query.split('&');
 
@@ -33,5 +33,4 @@ var minutesWarningInt = parseInt(minutesWarning);
 document.getElementById("summary").innerHTML = "Number of Stations in this exam is " + stations +
 ". The amount of time per station is " + minutes + " minute(s)! A warning will go off when " + minutesWarning 
 + " minute(s) remain."
-
 </script>

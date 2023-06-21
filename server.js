@@ -16,7 +16,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //---------------------------------------- DEFINE ROUTES ---------------------------------------- //
 //define a route for the home page
-app.get('/index', (req, res) => {
+app.get('/', (req, res) => {
     res.render('index', {title: 'Home', 
       stations: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
       timePerStationInMinutes: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 
@@ -57,7 +57,7 @@ app.get('/switching-timer-page', (req, res) => {
 
 //define a route for the error page
 app.get('/error-page', (req, res) =>{
-  res.render('error-page', {title: Error});
+  res.render('error-page', {title: "Error found"});
 })
 
 

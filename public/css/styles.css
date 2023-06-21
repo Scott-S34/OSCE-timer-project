@@ -4,9 +4,41 @@ body{
     margin:25px;
 }
 
+footer{
+    height:5%;
+    margin-top:50px;
+}
 
-#title{
-    text-align:center;
+.timer-buttons{
+    background-color: silver;
+    width: 8%;
+}
+
+#read-trigger,.timer-buttons{
+    color:indianred;
+} 
+
+#trigger, .timer-buttons{
+    color:red;
+}
+
+#switch-trigger, .timer-buttons{
+    color: gold;
+}
+
+
+
+#title, #e404, #ban-symbols{
+    text-align: center;
+}
+
+
+#back-home{
+    color:aquamarine;
+}
+
+#error-content{
+    margin-top:10%;
 }
 
 .finished-message{
@@ -21,9 +53,7 @@ body{
 }
 
 
-#e404{
-    text-align: center;
-}
+
 
 #summary{
     font-weight: bold ;
@@ -51,10 +81,16 @@ body{
 
 }
 
+
+
 #progression-buttons{
     float:right;   
 }
 
-#end{
-    color:red;
+#nextStation{
+    color:rgba(40, 182, 40, 0.815)
 }
+#end{
+    color:purple;
+}
+

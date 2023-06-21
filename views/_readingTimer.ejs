@@ -37,7 +37,7 @@
 
 
 
-
+var pairs;
 //reading = pairs[3].substr(pairs[3].length-1).toString();
 var reading = pairs[3].slice(pairs[3].indexOf("=") + 1).toString();
 //alert(reading);
@@ -95,7 +95,7 @@ function updateReadingTimer(){
     var nextTimer;
     if(readingTime < 0){
         stopReadingTimer();
-        readingTimerEle.innerHTML = "TIME'S UP "
+        readingTimerEle.innerHTML = "TIME'S UP! "
         readingBell.play();
         alert("Reading time is over!" );
         //updateTimer();

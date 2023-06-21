@@ -23,6 +23,8 @@
 
 /////MAIN TIMER////////////
 
+var pairs;
+
 var minutes = pairs[1].slice(pairs[1].indexOf("=") + 1).toString();
 
 var minutesInInt = parseInt(minutes);
@@ -34,7 +36,6 @@ var timer;
 var timerElement = document.getElementById('timer');
 
 
-alert("Station started");
 
 var bell = new Audio("audio/notification-bell.wav");
 
