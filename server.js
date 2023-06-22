@@ -39,19 +39,9 @@ app.get('/room2', (req, res) => {
   res.render('room2', {title: 'room2', capacity: 64  });
 });
 
-//define a route for the reading timer page
-app.get('/reading-timer-page', (req, res) => {
-  res.render('reading-timer-page', {title: 'Reading Time'});
-})
-
 //define a route for the timer page
 app.get('/main-timer-page', (req, res) => {
   res.render('main-timer-page', {title: 'The Timer'});
-})
-
-//define a route for the switching timer page
-app.get('/switching-timer-page', (req, res) => {
-  res.render('switching-timer-page', {title: 'Switching Time'});
 })
 
 
