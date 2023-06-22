@@ -23,6 +23,9 @@
 
 /////MAIN TIMER////////////
 
+
+//extracting  string in the url to obtain the amount of minutes to read per station
+// based off users input data
 var pairs;
 
 var minutes = pairs[1].slice(pairs[1].indexOf("=") + 1).toString();
@@ -33,29 +36,33 @@ var time = minutesInInt * 60;
 
 
 var timer;
+
+//variable which will contain the exam timer inside the timer div 
 var timerElement = document.getElementById('timer');
 
-
-
+//variable which stores the bell alert for when the timer runs out
 var bell = new Audio("audio/notification-bell.wav");
 
 
+//function which initiates the timer counting down
 function triggerTimer(){
     timer = setInterval(updateTimer, 1000);
     return timer;
 }
 
+// function toggleExamTimer(){
+//     var examTimer = document.getElementById("timer");
+//     if(examTimer.style.display === "block"){
+//         examTimer.style.display = "none";
+//     } else {
+//         examTimer.style.display = "block";
 
-function toggleExamTimer(){
-    var examTimer = document.getElementById("timer");
-    if(examTimer.style.display === "block"){
-        examTimer.style.display = "none";
-    } else {
-        examTimer.style.display = "block";
+//     }
+// }
 
-    }
-}
 
+
+//function which helps to format the look of the timer a well as calculate the amount of minutes and seconds in the timer
 function updateTimer() {
 
     var minutesInTimer = Math.floor(time / 60);
@@ -71,13 +78,14 @@ function updateTimer() {
         }
     time--;
 
-    //isolating the value entered for the warning as its own string in a unique variable
-    
+
+    //isolating the value entered for the warning as its own string in a unique variable   
     var minutesWarning = pairs[2].slice(pairs[2].indexOf("=") + 1).toString();
 
     //the type is converted to an int for comparing and output
     var minutesWarningInt = parseInt(minutesWarning);
 
+    //the warning notification is stored in a ddiv section of its own
     var warningElement = document.getElementById("warningIndicator");
 
 
@@ -93,7 +101,8 @@ function updateTimer() {
     //         warningElement.innerHTML = minutesWarningInt + " minutes left for this station!!";
     //         twoMinutesLeft.play();
     //     }
-    
+
+    //switch statement plugging in the right audio recordings with the corresponding warning text
     switch(minutesWarningInt){
             case 1: 
                 var oneMinuteLeft = new Audio("audio/osce-recordings/one.wav");
@@ -211,7 +220,8 @@ function updateTimer() {
     }
 
 
-    //if the seconds and minutes are both 0 the function is called to stop the timer - so no negative numbers in timer
+    //if the time for the timer hits 0; the function to stop the timer is called,
+    // the bell rings and the notification alert saying the reading timer is over appears
     if(time < 0){
         stopTimer();
         timerElement.innerHTML = "TIME'S UP!!!"

@@ -1,5 +1,4 @@
 
-<a id = "gettingTime" href = "/reading-timer-page"></a>
 <!--<button onclick = "toggleReadTimer()">Toggle reading timer once switching timer hits 0</button> -->
  <div id = "readingTimer">
    
@@ -10,7 +9,7 @@
 <script>
 
 
-
+//UNUSED CODE using AJAX AND JQUERY TO MAKE ONE TIMER APPEAR AT A TIME
 // $(document).ready(function(){
 //     $("button").click(function(){
 //         $("timer" ,"switchingTimer").toggle();
@@ -36,6 +35,8 @@
 
 
 
+//extracting  string in the url to obtain the amount of minutes to read per station
+// based off users input data
 
 var pairs;
 //reading = pairs[3].substr(pairs[3].length-1).toString();
@@ -49,8 +50,11 @@ var readingTime = readingInInt * 60;
 
 
 var readingTimer;
+
+//variable which will contain the reading timer inside the readingTimer div 
 var readingTimerEle = document.getElementById('readingTimer');
 
+//variable which stores the bell alert for when the timer runs out
 var readingBell = new Audio("audio/happy-bells.wav");
 
 
@@ -65,12 +69,16 @@ var readingBell = new Audio("audio/happy-bells.wav");
 //         readTimer.style.display = "none";
 //     }
 // }
+
+
+//function which initiates the timer counting down
 function countReadingTimer(){
     readingTimer = setInterval(updateReadingTimer, 1000);
     return readingTimer;
 }
 
 
+//function which helps to format the look of the timer a well as calculate the amount of minutes and seconds in the timer
 function updateReadingTimer(){
     var readingMinutesInTimer = Math.floor(readingTime / 60);
     var readingSecondsInTimer = readingTime % 60;
@@ -86,23 +94,18 @@ function updateReadingTimer(){
     console.log(readingTime)
     readingTime--;
 
-   
-
+//function inside the update funtion which alloes the timer to be stopped
     function stopReadingTimer(){
         clearInterval(readingTimer);
     }
 
-    var nextTimer;
+    //if the time for the reading timer hits 0; the function to stop the timer is called,
+    // the bell rings and the notification alert saying the reading timer is over appears
     if(readingTime < 0){
         stopReadingTimer();
         readingTimerEle.innerHTML = "TIME'S UP! "
         readingBell.play();
         alert("Reading time is over!" );
-        //updateTimer();
-        //loadTimer();
-        // nextTimer = document.getElementById("nextTimer");
-        // nextTimer.href ="/main-timer-page";
-        // nextTimer.innerHTML = "To the exam timer";
     }}
     
 

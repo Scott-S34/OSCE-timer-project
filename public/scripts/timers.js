@@ -1,6 +1,10 @@
 
 //////toggling appearance of timers/////
 
+
+//unneeded functions which makes each of the 3 timers appear and disappear 
+
+
 function toggleMainTimer(){
     var mainTimer = document.getElementById("timer");
     if(mainTimer.style.display === "none"){
@@ -32,14 +36,14 @@ function toggleSwitchTimer(){
 
 
 
+ 
 
+                                        /////////////////READING TIMER/////////////////
 
-
-/////////////////Reading Timer////////////
+//extracting location search string in the url to obtain the amount of minutes to read per station
 var query = document.location.search; 
 var pairs = query.split('&');
 //reading = pairs[3].substr(pairs[3].length-1).toString();
-
 
 var reading = pairs[3].slice(pairs[3].indexOf("=") + 1).toString();
 //alert(reading);
@@ -49,14 +53,15 @@ var readingInInt = parseInt(reading);
 var readingTime = readingInInt * 60;
 
 
-
-
+//variable which will contain the reading timer inside the readingTimer div 
 var readingTimerEle = document.getElementById('readingTimer');
 
+//variable which stores the bell alert for when the timer runs out
 var readingBell = new Audio("audio/happy-bells.wav");
 
 var readingTimer;
 
+//function which initiates the timer counting down
 function countReadingTimer(){
     readingTimer = setInterval(updateReadingTimer, 1000);
     return readingTimer;
@@ -64,7 +69,7 @@ function countReadingTimer(){
 
 
 
-
+//function which helps to format the look of the timer a well as calculate the amount of minutes and seconds in the timer
 function updateReadingTimer(){
     var readingMinutesInTimer = Math.floor(readingTime / 60);
     var readingSecondsInTimer = readingTime % 60;
@@ -79,7 +84,7 @@ function updateReadingTimer(){
     }
     readingTime--;
 
-
+//function inside the update funtion which alloes the timer to be stopped
     function stopReadingTimer(){
         clearInterval(readingTimer);
     }
@@ -96,7 +101,8 @@ function updateReadingTimer(){
     //     }
 
 
-
+    //if the time for the reading timer hits 0; the function to stop the timer is called,
+    // the bell rings and the notification alert saying the reading timer is over appears
     if(readingTime < 0){
         stopReadingTimer();
         readingTimerEle.innerHTML = "TIME'S UP!";
@@ -107,8 +113,11 @@ function updateReadingTimer(){
 
     
 
-///////////////MAIN TIMER/////////////////
+                            ////////////////////MAIN TIMER/////////////////////////
 
+
+
+//extracting location search string in the url to obtain the amount of minutes in the exam per station
 var minutes = pairs[1].slice(pairs[1].indexOf("=") + 1).toString();
 
 var minutesInInt = parseInt(minutes);
@@ -116,25 +125,26 @@ var minutesInInt = parseInt(minutes);
 var time = minutesInInt * 60;
 
 
-//var timer;
+
+//variable which will contain the exam timer inside the timer div 
 var timerElement = document.getElementById('timer');
 
 
-alert("The Examination has started");
-
+//variable which stores the bell alert for when the timer runs out
 var bell = new Audio("audio/notification-bell.wav");
-//timer = setInterval(updateTimer, 1000);
+
 
 
 
 var timer;
 
+//function which initiates the timer counting down
 function triggerTimer(){
     timer = setInterval(updateTimer, 1000);
     return timer;
 }
 
-
+//function which helps to format the look of the timer a well as calculate the amount of minutes and seconds in the timer
 function updateTimer() {
     var minutesInTimer = Math.floor(time / 60);
     var secondsInTimer = time % 60;
@@ -150,13 +160,14 @@ function updateTimer() {
     time--;
 
 
+
     //isolating the value entered for the warning as its own string in a unique variable
-    
     var minutesWarning = pairs[2].slice(pairs[2].indexOf("=") + 1).toString();
 
     //the type is converted to an int for comparing and output
     var minutesWarningInt = parseInt(minutesWarning);
 
+    //the warning notification is stored in a ddiv section of its own
     var warningElement = document.getElementById("warningIndicator");
 
 
@@ -164,8 +175,7 @@ function updateTimer() {
 
     
 
-
-    //SWITCH STATEMENT PLUGGING IN THE RIGHT RECORDINGS WITH THE CORRESPONDING VISUAL WARNINGS GOES BELOW;
+    
 
     //creating warning which matches with users inputs
     if(minutesInTimer === minutesWarningInt && secondsInTimer === 0){
@@ -179,6 +189,8 @@ function updateTimer() {
         //     twoMinutesLeft.play();
         // }
 
+
+        //switch statement plugging in the right audio recordings with the corresponding warning text
         switch(minutesWarningInt){
             case 1: 
                 var oneMinuteLeft = new Audio("audio/osce-recordings/one.wav");
@@ -293,7 +305,6 @@ function updateTimer() {
         clearInterval(timer);
     }
 
-    
 
     // var examTimer = document.getElementById("timer");
     // if(examTimer.style.display === "block"){
@@ -303,21 +314,25 @@ function updateTimer() {
     //      examTimer.style.display = "block";
     // }
 
-    //if the seconds and minutes are both 0 the function is called to stop the timer - so no negative numbers in timer
+    
+    //if the time for the timer hits 0; the function to stop the timer is called,
+    // the bell rings and the notification alert saying the reading timer is over appears
     if(time < 0){
         stopTimer();
         timerElement.innerHTML = "TIME'S UP !!!"
         bell.play();
         alert("Station finished!");
         //var bell = document.getElementById("bellId").play();
-    }} 
+    }}
 
 
 
-/////////////////////////SWITCHING TIMER//////////////////////////
+                /////////////////////////SWITCHING TIMER//////////////////////////
 
 
 
+//extracting location search string in the url to obtain the amount of seconds to switch to
+// the next station
 
 var switching = pairs[4].slice(pairs[4].indexOf("=") + 1).toString();
 //alert(switching);
@@ -327,20 +342,25 @@ var switchingInInt = parseInt(switching);
 var switchingTime = switchingInInt;
 
     
-    
-//var switchingTimer;
+
+//variable which will contain the switching timer to be inside the switchingTimer div 
 var switchingTimerEle = document.getElementById('switchingTimer');
     
+//variable which stores the bell alert for when the switching timer runs out
 var switchingBell = new Audio("audio/school-bell.wav");
-//switchingTimer = setInterval(updateSwitchingTimer, 1000);
+
+
 
 
 var switchingTimer;
+//function which initiates the timer counting down
 function triggerSwitchingTimer(){
     switchingTimer = setInterval(updateSwitchingTimer, 1000);
     return switchingTimer;
 }
     
+
+//function which helps to format the look of the timer a well as calculate the amount of minutes and seconds in the timer
 function updateSwitchingTimer(){
     var switchingMinutesInTimer = Math.floor(switchingTime / 60);
     var switchingSecondsInTimer = switchingTime % 60;
@@ -355,11 +375,13 @@ function updateSwitchingTimer(){
     }
 
     switchingTime--;
-    
+
+    ///function which stops the switching timer 
     function stopSwitchingTimer(){
         clearInterval(switchingTimer);
     }
-        
+    //if the time for the switching timer hits 0; the function to stop the timer is called,
+    // the bell rings and the notification alert saying the reading timer is over appears
         if(switchingTime < 0){
         stopSwitchingTimer();
         switchingTimerEle.innerHTML = "TIME'S UP!!"

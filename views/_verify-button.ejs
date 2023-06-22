@@ -1,14 +1,21 @@
 <script>
-    function verifyDetails(){
 
+    //function which collects the information the user has entered and will validate this information
+    function verifyDetails(){
+    
+    //the number of stations
     var stationNums = document.forms["details"]["stations"].value;
+    //the amount of time per station
     var minutes = document.forms["details"]["minutes"].value;
+    //the time when the warning appears
     var minutesRemaining =  parseInt("0" + document.forms["details"]["warning"].value);
+    //the amount of time to read objectives
     var minutesReading = document.forms["details"]["reading"].value;
+    //the amount of time to switch stations
     var secondsSwitching = document.forms["details"]["switching"].value;
 
 
-
+    //alerts will appear if any data entered is unsuitable
     if(stationNums > 15 || stationNums < 1){
         alert("The exam must have betweeen 1 and 15 stations!");
     } else{
@@ -39,5 +46,5 @@
 }
 
 </script>
-
-<button type = "button" onclick = "verifyDetails()"> Verify Details</button>
+<!--clickig the button will verify the information entered, any inappropriate data will be caught-->
+<button type = "button" id = "verify" onclick = "verifyDetails()"> Verify Details</button>

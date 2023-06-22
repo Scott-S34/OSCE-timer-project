@@ -1,8 +1,6 @@
 <html>
     <head>
         <%- include('_head') %>
-        <script src="scripts/timers.js"></script>
-        <script src = "scripts/progression.js"></script> 
         
         
     </head>
@@ -11,6 +9,7 @@
     <body>
     
 
+        <!--title for the page-->
     <h2>TIMER</h2>
 
     <h1 style = "text-align:center;">Good Luck!</h1>
@@ -19,27 +18,35 @@
         <br>
 
         <script>
+            //annoucment notification saying the station has started once the page appears
             alert("Station Started");
         </script>
 
+        
         <p id = "summary">
 
         </p>
+        <!--information about the exam-->
          <%- include('_exam-details') %>
 
 
         <!-- <button onclick = "toggleReadTimer()">Toggle reading timer once switching timer hits 0</button>  -->
 
+        <!--button which makes the reading timer appear and then count down when clicked-->
         <button class = "timer-buttons" id = "read-trigger" onclick = "countReadingTimer()">Start Reading Timer</button>
         <%- include('_readingTimer') %>
         
 
         <!-- <button onclick = "toggleMainTimer()">Toggle reading timer once switching timer hits 0</button>   -->
+        
+        <!--button which makes the main timer appear and then count down when clicked-->
         <button class = "timer-buttons" id = "trigger" onclick = "triggerTimer()">Start Examination Timer</button>
         <%- include('_timer') %> 
     
         
         <!-- <button onclick = "toggleSwitchTimer()">Toggle this when it hits 0</button> -->
+        
+        <!--button which makes the switching timer appear and then count down when clicked-->
         <button class = "timer-buttons" id = "switch-trigger" onclick = "triggerSwitchingTimer()">Start Switching Timer</button>
         <%- include('_switchingTimer') %> 
 
@@ -48,11 +55,15 @@
 
         <div id = "progression-buttons">
         
+            <!--button which refreshes the page to take the user to the next station when clicked -->
             <button  id = "nextStation" onclick = "showNextStation()">Next Station</button>
 
             <br>
             <br>
             <br>
+
+            <!--button which is wrapped around a link to the home page.
+                When clicked, the exam ends and the user returns to the home page -->
             <a href =  "/">
                 <button id  = "end" onclick = "finishExam()">Finish Examination</button>
             </a>

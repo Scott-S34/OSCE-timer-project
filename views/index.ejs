@@ -10,9 +10,11 @@
         <!-- <img id = "image-shrink" src = "images/timer.jpg" alt  = "timer"> -->
 
         <header>
+            <!--Title for the home page-->
             <h1 id = "title">Welcome to the Objective Structured 
                 Clinical Examination (OSCE) timer</h1>
 
+            <!--Timer icons to be placed at the very left and right hand side of the page-->
             <i class="fa fa-solid fa-clock fa-bounce fa-2xl"></i>
             <i class="fa fa-solid fa-clock fa-bounce fa-2xl" style = "float:right;"></i>
 
@@ -29,11 +31,12 @@
 
         <br>
 
-    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
-    <script src="scripts/bell.js"></script>
-    
+        <!--test to see if audio clips play-->
+        <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+        <script src="scripts/bell.js"></script>
         <!-- <button id="test">Press Me</button> -->
 
+        <!--the form and button from the variables partial-->
         <%- include ('_variables') %>
 
        <br>
@@ -41,12 +44,14 @@
         
         <br> 
 
+        <!-- the button which checks to see if the user input data is valid-->
         <%- include ('_verify-button') %>
 
         <br>
         <br>
 
         <!-- <a href = "/room1">Room1 route</a> -->
+        <!-- Link to the error page easter egg-->
         <a href = "/error-page">To timer</a>
         
         <footer>

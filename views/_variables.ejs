@@ -1,5 +1,11 @@
+
+
 <p> Number of possible stations for this Exam; <%= stations %> </p>
+
+<!-- Form which asks the user for relevant information about the exam going ahead,
+        the data is then forwarded to the timer page-->
 <form id = "details" action = "/main-timer-page"> 
+        <!--Field where the number of stations must be entered-->
         <label for = "stations">Enter number of stations - </label>
         <input type = "text" name="stations" id = "stations" value= "" required>
         
@@ -8,7 +14,7 @@
         <br><br>
         
         <br>
-
+        <!--Field where the amount of minutes per station must be entered-->
         <p> Minutes allowed for each Station; <%= timePerStationInMinutes %> </p>
         <label for = "minutes">How many minutes is each station?</label>
         <input type = "text" name="minutes" id = "minutes" value="" required> 
@@ -18,7 +24,7 @@
         
         <br>
 
-
+        <!--Field where when the warning appears must be entered-->
         <p> Warning about how many minutes remain each station; <%= warningInMinutes %> </p>
         <label for = "warning">Warning when </label>
         <input type = "text" name="warning" id = "warning" value="" required> <p class = "finished-message">minutes remain </p> 
@@ -27,7 +33,7 @@
 
         <br><br>
 
-
+        <!--Field where the amount of minutes to read the objects must be entered-->
         <p>Time to read through each scenario options; <%= minutesToRead %> </p> 
         <label for = "reading">How much time to read through the scenario before starting (in minutes)? </label>
         <input type = "text" name="reading" class = "reading" value="" required>  
@@ -35,14 +41,15 @@
         <br><br>
         <br>
         
-        
+        <!--Field where the amount of seconds to switch to the next station must be entered-->
         <p> Time to switch between each station; <%= secondsToSwitchStation %> </p>
         <label for = "switching">How much time should be given to switch to the next station (in seconds)? </label>
         <input type = "text" name="switching" id = "switching" value="" required> 
         <i class="fa fa-sharp fa-solid fa-asterisk fa-beat" style = "color:red"></i>
         <br>
-        
-        <input id  = "submission" type = "submit" value = "Submit Details & Start">
+        <!-- submit button which will take the user to the timer page once the form is complete and will 
+        also say that the exam has started-->
+        <input id  = "submission" onclick = "announceExamStart()" type = "submit" value = "Submit Details & Start">
 
 
 
@@ -50,4 +57,10 @@
       
 </form>
 
+<script>
+        //function which alerts the user that the exam has started upon clicking the submit button
+        function announceExamStart(){
+                alert("The Examination has started")
+        }
+</script>
 

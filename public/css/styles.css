@@ -9,6 +9,11 @@ footer{
     margin-top:50px;
 }
 
+
+#verify{
+    background-color:black;
+    color:silver;
+}
 .timer-buttons{
     background-color: silver;
     width: 8%;

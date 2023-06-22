@@ -1,4 +1,4 @@
-<a id = "gettingTime" href = "/switching-timer-page"></a>
+
 
 <!-- <button onclick = "toggleSwitchTimer()">Toggle switching timer once main timer hits 0</button> -->
 <div id = "switchingTimer">
@@ -8,8 +8,11 @@
 <br>
 
 
+
 <script>
 
+//extracting  string in the url to obtain the amount of minutes to read per station
+// based off users input data
 var pairs;
 
 var switching = pairs[4].slice(pairs[4].indexOf("=") + 1).toString();
@@ -23,10 +26,15 @@ var switchingTime = switchingInInt;
     
     
 var switchingTimer;
+
+//variable which will contain the switching timer to be inside the switchingTimer div 
 var switchingTimerEle = document.getElementById('switchingTimer');
     
+//variable which stores the bell alert for when the switching timer runs out
 var switchingBell = new Audio("audio/school-bell.wav");
 
+
+//function which initiates the timer counting down
 function triggerSwitchingTimer(){
     switchingTimer = setInterval(updateSwitchingTimer, 1000);
     return switchingTimer;
@@ -41,6 +49,7 @@ function triggerSwitchingTimer(){
 //     }
 // }
     
+//function which helps to format the look of the timer a well as calculate the amount of minutes and seconds in the timer
 function updateSwitchingTimer(){
     var switchingMinutesInTimer = Math.floor(switchingTime / 60);
     var switchingSecondsInTimer = switchingTime % 60;
@@ -56,11 +65,14 @@ function updateSwitchingTimer(){
 
     switchingTime--;
     
-    
+///function which stops the switching timer 
 function stopSwitchingTimer(){
     clearInterval(switchingTimer);
 }
+
     
+//if the time for the switching timer hits 0; the function to stop the timer is called,
+// the bell rings and the notification alert saying the reading timer is over appears
 if(switchingTime < 0){
         stopSwitchingTimer();
         switchingTimerEle.innerHTML = "TIME'S UP!!!"
