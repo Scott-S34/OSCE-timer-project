@@ -22,7 +22,7 @@
             alert("Station Started");
         </script>
 
-        
+        <h3 style = text-align:cen5ter>THE EXAM HAS NOW STARTED</h3>
         <p id = "summary">
 
         </p>
@@ -30,24 +30,17 @@
          <%- include('_exam-details') %>
 
 
-        <!-- <button onclick = "toggleReadTimer()">Toggle reading timer once switching timer hits 0</button>  -->
-
-        <!--button which makes the reading timer appear and then count down when clicked-->
-        <button class = "timer-buttons" id = "read-trigger" onclick = "countReadingTimer()">Start Reading Timer</button>
+        <p>Reading timer has started</p>
         <%- include('_readingTimer') %>
         
 
         <!-- <button onclick = "toggleMainTimer()">Toggle reading timer once switching timer hits 0</button>   -->
         
-        <!--button which makes the main timer appear and then count down when clicked-->
-        <button class = "timer-buttons" id = "trigger" onclick = "triggerTimer()">Start Examination Timer</button>
+
         <%- include('_timer') %> 
     
         
-        <!-- <button onclick = "toggleSwitchTimer()">Toggle this when it hits 0</button> -->
         
-        <!--button which makes the switching timer appear and then count down when clicked-->
-        <button class = "timer-buttons" id = "switch-trigger" onclick = "triggerSwitchingTimer()">Start Switching Timer</button>
         <%- include('_switchingTimer') %> 
 
         <br>

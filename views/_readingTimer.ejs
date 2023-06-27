@@ -72,10 +72,28 @@ var readingBell = new Audio("audio/happy-bells.wav");
 
 
 //function which initiates the timer counting down
+
+
+function triggerTimer(){
+    var timerStart = document.createElement("p");
+    timerStart.innerHTML = "Exam timer has started";
+    timer = setInterval(updateTimer, 1000);
+    return timer;
+}
+
 function countReadingTimer(){
+    var rTimerStart = document.createElement("p");
+    rTimerStart.innerHTML = "Reading timer has started";
     readingTimer = setInterval(updateReadingTimer, 1000);
     return readingTimer;
 }
+
+
+
+
+
+
+countReadingTimer();
 
 
 //function which helps to format the look of the timer a well as calculate the amount of minutes and seconds in the timer
@@ -103,9 +121,11 @@ function updateReadingTimer(){
     // the bell rings and the notification alert saying the reading timer is over appears
     if(readingTime < 0){
         stopReadingTimer();
-        readingTimerEle.innerHTML = "TIME'S UP! "
+        readingTimerEle.innerHTML = "TIME'S UP!!!";
+        var rTimerFinish = document.createElement("p");
+        rTimerFinish.innerHTML = "Reading time is over";
         readingBell.play();
-        alert("Reading time is over!" );
+        triggerTimer();
     }}
     
 

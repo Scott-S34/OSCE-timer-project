@@ -19,7 +19,19 @@
 
 
 <script>
+function triggerTimer(){
+    var timerStart = document.createElement("p");
+    timerStart.innerHTML = "Exam timer has started";
+    timer = setInterval(updateTimer, 1000);
+    return timer;
+}
 
+function triggerSwitchingTimer(){
+    var sTimerStart= document.createElement("p");
+    sTimerStart.innerHTML = "Switching timer has started";
+    switchingTimer = setInterval(updateSwitchingTimer, 1000);
+    return switchingTimer;
+}
 
 /////MAIN TIMER////////////
 
@@ -44,11 +56,6 @@ var timerElement = document.getElementById('timer');
 var bell = new Audio("audio/notification-bell.wav");
 
 
-//function which initiates the timer counting down
-function triggerTimer(){
-    timer = setInterval(updateTimer, 1000);
-    return timer;
-}
 
 // function toggleExamTimer(){
 //     var examTimer = document.getElementById("timer");
@@ -224,15 +231,9 @@ function updateTimer() {
     // the bell rings and the notification alert saying the reading timer is over appears
     if(time < 0){
         stopTimer();
-        timerElement.innerHTML = "TIME'S UP!!!"
+        timerElement.innerHTML = "TIME'S UP!!! TIME TO MOVE STATIONS"
         bell.play();
-        alert("Station finished!");
-        //var bell = document.getElementById("bellId").play();
-        //alert("Examination finished!");
-        // var theNextTimer = document.createElement("a");
-        // theNextTimer.href ="/switching-timer-page";
-        // theNextTimer.innerHTML = "To the switching timer";
-        
+        triggerSwitchingTimer();
     }}
 
 

@@ -35,7 +35,24 @@ var switchingBell = new Audio("audio/school-bell.wav");
 
 
 //function which initiates the timer counting down
+
+// function triggerTimer(){
+//     var timerStart = document.createElement(p);
+//     timerStart.innerHTML = "Exam timer has started";
+//     timer = setInterval(updateTimer, 1000);
+//     return timer;
+// }
+
+// function countReadingTimer(){
+//     var rTimerStart = document.createElement(p);
+//     rTimerStart.innerHTML = "Reading timer has started";
+//     readingTimer = setInterval(updateReadingTimer, 1000);
+//     return readingTimer;
+// }
+
 function triggerSwitchingTimer(){
+    var sTimerStart= document.createElement("p");
+    sTimerStart.innerHTML = "Switching timer has started";
     switchingTimer = setInterval(updateSwitchingTimer, 1000);
     return switchingTimer;
 }
@@ -75,12 +92,11 @@ function stopSwitchingTimer(){
 // the bell rings and the notification alert saying the reading timer is over appears
 if(switchingTime < 0){
         stopSwitchingTimer();
-        switchingTimerEle.innerHTML = "TIME'S UP!!!"
+        switchingTimerEle.innerHTML = "TIME'S UP!!!";
+        var sTimerFinish = document.createElement("p");
+        sTimerFinish.innerHTML = "Switching time is over, you should be into your new station";
         switchingBell.play();
-        alert("Switching time is over! You should be in your new stations now" );
-        // var theOtherTimer = document.createElement("a");
-        // theOtherTimer.href ="/reading-timer-page";
-        //theNextTimer.innerHTML = "To the next station";
+
         
 }}
     

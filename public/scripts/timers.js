@@ -36,6 +36,30 @@ function toggleSwitchTimer(){
 
 
 
+
+
+function triggerTimer(){
+    var timerStart = document.createElement("p");
+    timerStart.innerHTML = "Exam timer has started";
+    timer = setInterval(updateTimer, 1000);
+    return timer;
+}
+
+function countReadingTimer(){
+    var rTimerStart = document.createElement("p");
+    rTimerStart.innerHTML = "Reading timer has started";
+    readingTimer = setInterval(updateReadingTimer, 1000);
+    return readingTimer;
+}
+
+function triggerSwitchingTimer(){
+    var sTimerStart = document.createElement("p");
+    sTimerStart.innerHTML = "Switching timer has started";
+    switchingTimer = setInterval(updateSwitchingTimer, 1000);
+    return switchingTimer;
+}
+
+
  
 
                                         /////////////////READING TIMER/////////////////
@@ -61,13 +85,8 @@ var readingBell = new Audio("audio/happy-bells.wav");
 
 var readingTimer;
 
+
 //function which initiates the timer counting down
-function countReadingTimer(){
-    readingTimer = setInterval(updateReadingTimer, 1000);
-    return readingTimer;
-}
-
-
 
 //function which helps to format the look of the timer a well as calculate the amount of minutes and seconds in the timer
 function updateReadingTimer(){
@@ -92,13 +111,6 @@ function updateReadingTimer(){
 
 
 
-    // var readTimer = document.getElementById("readingTimer");
-    //     if(readTimer.style.display === "none"){
-    //         readTimer.style.display = "block";
-    //     } else {
-    //         readTimer.style.display = "none";
-    //         stopReadingTimer();
-    //     }
 
 
     //if the time for the reading timer hits 0; the function to stop the timer is called,
@@ -106,8 +118,10 @@ function updateReadingTimer(){
     if(readingTime < 0){
         stopReadingTimer();
         readingTimerEle.innerHTML = "TIME'S UP!";
+        var rTimerFinish = document.createElement("p");
+        rTimerFinish.innerHTML = "Reading time is over";
         readingBell.play();
-        alert("Reading time is over!" );
+        triggerTimer();
 
     }}
 
@@ -138,11 +152,6 @@ var bell = new Audio("audio/notification-bell.wav");
 
 var timer;
 
-//function which initiates the timer counting down
-function triggerTimer(){
-    timer = setInterval(updateTimer, 1000);
-    return timer;
-}
 
 //function which helps to format the look of the timer a well as calculate the amount of minutes and seconds in the timer
 function updateTimer() {
@@ -319,9 +328,9 @@ function updateTimer() {
     // the bell rings and the notification alert saying the reading timer is over appears
     if(time < 0){
         stopTimer();
-        timerElement.innerHTML = "TIME'S UP !!!"
+        timerElement.innerHTML = "TIME'S UP!!!";
         bell.play();
-        alert("Station finished!");
+        triggerSwitchingTimer();
         //var bell = document.getElementById("bellId").play();
     }}
 
@@ -354,10 +363,7 @@ var switchingBell = new Audio("audio/school-bell.wav");
 
 var switchingTimer;
 //function which initiates the timer counting down
-function triggerSwitchingTimer(){
-    switchingTimer = setInterval(updateSwitchingTimer, 1000);
-    return switchingTimer;
-}
+
     
 
 //function which helps to format the look of the timer a well as calculate the amount of minutes and seconds in the timer
@@ -385,9 +391,11 @@ function updateSwitchingTimer(){
         if(switchingTime < 0){
         stopSwitchingTimer();
         switchingTimerEle.innerHTML = "TIME'S UP!!"
+        var sTimerFinish = document.createElement("p");
+        sTimerFinish.innerHTML = "Switching time is over, you should be into your new station";
         switchingBell.play();
         stopTimer();
-        alert("Switching time is over! You should be in your new stations now" );
+        
         
 }}
     
