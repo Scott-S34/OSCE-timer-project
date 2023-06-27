@@ -19,6 +19,13 @@ footer{
     width: 8%;
 }
 
+.startingAnnouncements{
+    font-style: italic;
+    font-weight:bold;
+    font-size:18pt;
+}
+
+
 #read-trigger,.timer-buttons{
     color:indianred;
 } 

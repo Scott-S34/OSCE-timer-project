@@ -2,7 +2,6 @@
     <head>
         <%- include('_head') %>
         
-        
     </head>
 
 
@@ -22,26 +21,54 @@
             alert("Station Started");
         </script>
 
-        <h3 style = text-align:cen5ter>THE EXAM HAS NOW STARTED</h3>
+        <h3 style = text-align:center>THE EXAM HAS NOW STARTED</h3>
         <p id = "summary">
 
         </p>
         <!--information about the exam-->
-         <%- include('_exam-details') %>
+        <%- include('_exam-details') %>
+
+        <br>
+        <br>
 
 
-        <p>Reading timer has started</p>
-        <%- include('_readingTimer') %>
-        
 
-        <!-- <button onclick = "toggleMainTimer()">Toggle reading timer once switching timer hits 0</button>   -->
-        
+        <!-- <p id = "readingTimerStart"></p>
 
-        <%- include('_timer') %> 
+        <div id = "readingTimer">
+
+        </div>
     
+        <br> -->
+        <%- include('_readingTimer') %>
+      
+        
+
+        <!-- <p id = "timerStart"></p>
+
+        <div id = "timer">
+
+        </div>
+
+        <br>
+        <div id = "warningIndicator">
+        </div>
+
+        <br><br> -->
+
+        <%- include('_timer') %>
+        
+        <!-- <p id = "switchTimerStart"></p>
+
+        <div id = "switchingTimer">
+            </div>
+        
+        <br> -->
+        
+
+        <%- include('_switchingTimer') %>
         
         
-        <%- include('_switchingTimer') %> 
 
         <br>
         <br>

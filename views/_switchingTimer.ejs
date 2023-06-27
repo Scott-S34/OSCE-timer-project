@@ -1,8 +1,9 @@
 
 
 <!-- <button onclick = "toggleSwitchTimer()">Toggle switching timer once main timer hits 0</button> -->
+<p id = "switchTimerStart" class = "startingAnnouncements"></p>
+
 <div id = "switchingTimer">
-    
     </div>
 
 <br>
@@ -51,8 +52,8 @@ var switchingBell = new Audio("audio/school-bell.wav");
 // }
 
 function triggerSwitchingTimer(){
-    var sTimerStart= document.createElement("p");
-    sTimerStart.innerHTML = "Switching timer has started";
+    var sTimerStart = document.getElementById("switchTimerStart");
+    sTimerStart.innerHTML = "Switching Timer Has Started";
     switchingTimer = setInterval(updateSwitchingTimer, 1000);
     return switchingTimer;
 }
@@ -92,9 +93,7 @@ function stopSwitchingTimer(){
 // the bell rings and the notification alert saying the reading timer is over appears
 if(switchingTime < 0){
         stopSwitchingTimer();
-        switchingTimerEle.innerHTML = "TIME'S UP!!!";
-        var sTimerFinish = document.createElement("p");
-        sTimerFinish.innerHTML = "Switching time is over, you should be into your new station";
+        switchingTimerEle.innerHTML = "TIME'S UP!!! Switching Timer Has Ended";
         switchingBell.play();
 
         

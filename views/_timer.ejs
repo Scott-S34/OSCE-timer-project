@@ -1,11 +1,16 @@
-<a id = "gettingTime" href = "/main-timer-page"></a>
+<!-- <a id = "gettingTime" href = "/main-timer-page"></a> -->
 
 
 
 <br><br>
 
 <!-- <button onclick = "toggleExamTimer()">Toggle main timer once reading timer hits 0</button> -->
+
+<p id = "timerStart" class = "startingAnnouncements"></p>
+
+
 <div id = "timer">
+
     
 </div>
 
@@ -20,15 +25,15 @@
 
 <script>
 function triggerTimer(){
-    var timerStart = document.createElement("p");
-    timerStart.innerHTML = "Exam timer has started";
+    var timerStartAnnouncement = document.getElementById("timerStart");
+    timerStartAnnouncement.innerHTML = "Exam timer has started";
     timer = setInterval(updateTimer, 1000);
     return timer;
 }
 
 function triggerSwitchingTimer(){
-    var sTimerStart= document.createElement("p");
-    sTimerStart.innerHTML = "Switching timer has started";
+    // var sTimerStart= document.createElement("p");
+    // sTimerStart.innerHTML = "Switching timer has started";
     switchingTimer = setInterval(updateSwitchingTimer, 1000);
     return switchingTimer;
 }
@@ -231,7 +236,7 @@ function updateTimer() {
     // the bell rings and the notification alert saying the reading timer is over appears
     if(time < 0){
         stopTimer();
-        timerElement.innerHTML = "TIME'S UP!!! TIME TO MOVE STATIONS"
+        timerElement.innerHTML = "TIME'S UP!!! The Timer Has Ended";
         bell.play();
         triggerSwitchingTimer();
     }}

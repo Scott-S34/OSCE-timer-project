@@ -5,6 +5,7 @@
 //unneeded functions which makes each of the 3 timers appear and disappear 
 
 
+
 function toggleMainTimer(){
     var mainTimer = document.getElementById("timer");
     if(mainTimer.style.display === "none"){
@@ -38,29 +39,31 @@ function toggleSwitchTimer(){
 
 
 
-function triggerTimer(){
-    var timerStart = document.createElement("p");
-    timerStart.innerHTML = "Exam timer has started";
-    timer = setInterval(updateTimer, 1000);
-    return timer;
-}
+
 
 function countReadingTimer(){
-    var rTimerStart = document.createElement("p");
+    var rTimerStart = document.getElementById("readingTimerStart");
     rTimerStart.innerHTML = "Reading timer has started";
     readingTimer = setInterval(updateReadingTimer, 1000);
     return readingTimer;
 }
 
+function triggerTimer(){
+    var timerStartAnnoucement = document.getElementById("timerStart");
+    timerStartAnnoucement.innerHTML = "Exam timer has started";
+    timer = setInterval(updateTimer, 1000);
+    return timer;
+}
+
 function triggerSwitchingTimer(){
-    var sTimerStart = document.createElement("p");
-    sTimerStart.innerHTML = "Switching timer has started";
+    var sTimerStart = document.getElementById("switchTimerStart");
+    sTimerStart.innerHTML = "Switching Timer Has Started";
     switchingTimer = setInterval(updateSwitchingTimer, 1000);
     return switchingTimer;
 }
 
+countReadingTimer();
 
- 
 
                                         /////////////////READING TIMER/////////////////
 
@@ -117,9 +120,7 @@ function updateReadingTimer(){
     // the bell rings and the notification alert saying the reading timer is over appears
     if(readingTime < 0){
         stopReadingTimer();
-        readingTimerEle.innerHTML = "TIME'S UP!";
-        var rTimerFinish = document.createElement("p");
-        rTimerFinish.innerHTML = "Reading time is over";
+        readingTimerEle.innerHTML = "TIME'S UP!!! Reading Timer Has Ended";
         readingBell.play();
         triggerTimer();
 
@@ -328,7 +329,7 @@ function updateTimer() {
     // the bell rings and the notification alert saying the reading timer is over appears
     if(time < 0){
         stopTimer();
-        timerElement.innerHTML = "TIME'S UP!!!";
+        timerElement.innerHTML = "TIME'S UP!!! The Timer Has Ended";
         bell.play();
         triggerSwitchingTimer();
         //var bell = document.getElementById("bellId").play();
@@ -390,9 +391,7 @@ function updateSwitchingTimer(){
     // the bell rings and the notification alert saying the reading timer is over appears
         if(switchingTime < 0){
         stopSwitchingTimer();
-        switchingTimerEle.innerHTML = "TIME'S UP!!"
-        var sTimerFinish = document.createElement("p");
-        sTimerFinish.innerHTML = "Switching time is over, you should be into your new station";
+        switchingTimerEle.innerHTML = "TIME'S UP!!! Switching Timer Has Ended";
         switchingBell.play();
         stopTimer();
         
