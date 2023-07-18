@@ -53,6 +53,8 @@ var switchingBell = new Audio("audio/school-bell.wav");
 
 function triggerSwitchingTimer(){
     var sTimerStart = document.getElementById("switchTimerStart");
+    var switchStationAudio = new Audio("audio/new-recordings/switch_station.wav");
+    switchStationAudio.play();
     sTimerStart.innerHTML = "Switching Timer Has Started";
     switchingTimer = setInterval(updateSwitchingTimer, 1000);
     return switchingTimer;

@@ -6,6 +6,14 @@ function showNextStation(){
 
 //function which tells the user the exam has ended 
 // and then go back to the home page
+
+
+document.getElementById("end").addEventListener("click", finishExam);
+
 function finishExam(){
+    var stopExamAudio = new Audio("audio/new-recordings/exam_ended.wav");
+    stopExamAudio.play();
     alert("The Examination has ended. Well Done!");
+    console.log("played")
+    
 }

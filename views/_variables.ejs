@@ -1,4 +1,10 @@
+<script>
+        function playExamStartsAudio(){
+                var startExamAudio = new Audio("audio/new-recordings/exam_started.wav");
+                startExamAudio.play();
+        }
 
+</script>
 
 <p> Number of possible stations for this Exam; <%= stations %> </p>
 
@@ -48,14 +54,8 @@
         <i class="fa fa-sharp fa-solid fa-asterisk fa-beat" style = "color:red"></i>
         <br>
         <!-- submit button which will take the user to the timer page once the form is complete -->
-        <input id  = "submission" type = "submit" value = "Submit Details & Start">
+        <input id  = "submission" type = "submit" value = "Submit Details & Start" onclick = "playExamStartsAudio()" >
 
 
-      
 </form>
-
-<script>
-
-
-</script>
 

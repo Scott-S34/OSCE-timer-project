@@ -3,8 +3,11 @@
 $(document).ready(function(){
 
     $("#test").click(function(){
-        var bell = new Audio("audio/osce-recordings/one.wav");
-    bell.play();});
+    //     var bell = new Audio("audio/osce-recordings/one.wav");
+    // bell.play();
+    var stopExamAudio = new Audio("audio/new-recordings/exam_ended.wav");
+    stopExamAudio.play();
+  });
   });
 
   

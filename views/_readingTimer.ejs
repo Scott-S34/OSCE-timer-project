@@ -80,7 +80,9 @@ var readingBell = new Audio("audio/happy-bells.wav");
 
 function countReadingTimer(){
     var rTimerStart = document.getElementById("readingTimerStart");
-    rTimerStart.innerHTML = "Reading timer has started";
+    var startReadingAudio = new Audio("audio/new-recordings/reading_time_started.wav");
+    startReadingAudio.play();
+    rTimerStart.innerHTML = "Reading Timer has started";
     readingTimer = setInterval(updateReadingTimer, 1000);
     return readingTimer;
 }
@@ -125,6 +127,8 @@ function updateReadingTimer(){
         stopReadingTimer();
         readingTimerEle.innerHTML = "TIME'S UP!!! Reading Timer Has Ended";
         readingBell.play();
+        var stopReadingAudio = new Audio("audio/new-recordings/reading_time_ended.wav");
+        stopReadingAudio.play();
         triggerTimer();
     }}
     

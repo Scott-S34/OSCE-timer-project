@@ -26,7 +26,9 @@
 <script>
 function triggerTimer(){
     var timerStartAnnouncement = document.getElementById("timerStart");
-    timerStartAnnouncement.innerHTML = "Exam timer has started";
+    var startStationAudio = new Audio("audio/new-recordings/station_started.wav");
+    startStationAudio.play();
+    timerStartAnnouncement.innerHTML = "Exam Timer has started";
     timer = setInterval(updateTimer, 1000);
     return timer;
 }
@@ -238,6 +240,8 @@ function updateTimer() {
         stopTimer();
         timerElement.innerHTML = "TIME'S UP!!! The Timer Has Ended";
         bell.play();
+        var stopStationAudio = new Audio("audio/new-recordings/station_ended.wav");
+        stopStationAudio.play();
         triggerSwitchingTimer();
     }}
 

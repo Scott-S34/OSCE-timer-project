@@ -43,6 +43,8 @@ function toggleSwitchTimer(){
 
 function countReadingTimer(){
     var rTimerStart = document.getElementById("readingTimerStart");
+    //var startReadingAudio = new Audio("audio/new-recordings/reading_time_started.wav");
+    //startReadingAudio.play();
     rTimerStart.innerHTML = "Reading timer has started";
     readingTimer = setInterval(updateReadingTimer, 1000);
     return readingTimer;
@@ -50,6 +52,8 @@ function countReadingTimer(){
 
 function triggerTimer(){
     var timerStartAnnoucement = document.getElementById("timerStart");
+    var startStationAudio = new Audio("audio/new-recordings/station_started.wav");
+    startStationAudio.play();
     timerStartAnnoucement.innerHTML = "Exam timer has started";
     timer = setInterval(updateTimer, 1000);
     return timer;
@@ -57,6 +61,8 @@ function triggerTimer(){
 
 function triggerSwitchingTimer(){
     var sTimerStart = document.getElementById("switchTimerStart");
+    var switchStationAudio = new Audio("audio/new-recordings/switch_station.wav");
+    switchStationAudio.play();
     sTimerStart.innerHTML = "Switching Timer Has Started";
     switchingTimer = setInterval(updateSwitchingTimer, 1000);
     return switchingTimer;
@@ -122,6 +128,8 @@ function updateReadingTimer(){
         stopReadingTimer();
         readingTimerEle.innerHTML = "TIME'S UP!!! Reading Timer Has Ended";
         readingBell.play();
+        var stopReadingAudio = new Audio("audio/new-recordings/reading_time_ended.wav");
+        stopReadingAudio.play();
         triggerTimer();
 
     }}
@@ -331,6 +339,8 @@ function updateTimer() {
         stopTimer();
         timerElement.innerHTML = "TIME'S UP!!! The Timer Has Ended";
         bell.play();
+        var stopStationAudio = new Audio("audio/new-recordings/station_ended.wav");
+        stopStationAudio.play();
         triggerSwitchingTimer();
         //var bell = document.getElementById("bellId").play();
     }}
