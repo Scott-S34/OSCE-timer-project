@@ -1,4 +1,5 @@
-//test of jquery and to see if the minutes warning voice clips work
+//test of jquery and to see if the minutes warning voice clips work 
+//TESTING ONLY
 
 $(document).ready(function(){
 

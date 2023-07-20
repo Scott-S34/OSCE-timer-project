@@ -31,25 +31,8 @@ var switchingTimer;
 //variable which will contain the switching timer to be inside the switchingTimer div 
 var switchingTimerEle = document.getElementById('switchingTimer');
     
-//variable which stores the bell alert for when the switching timer runs out
-var switchingBell = new Audio("audio/school-bell.wav");
 
 
-//function which initiates the timer counting down
-
-// function triggerTimer(){
-//     var timerStart = document.createElement(p);
-//     timerStart.innerHTML = "Exam timer has started";
-//     timer = setInterval(updateTimer, 1000);
-//     return timer;
-// }
-
-// function countReadingTimer(){
-//     var rTimerStart = document.createElement(p);
-//     rTimerStart.innerHTML = "Reading timer has started";
-//     readingTimer = setInterval(updateReadingTimer, 1000);
-//     return readingTimer;
-// }
 
 function triggerSwitchingTimer(){
     var sTimerStart = document.getElementById("switchTimerStart");
@@ -96,6 +79,8 @@ function stopSwitchingTimer(){
 if(switchingTime < 0){
         stopSwitchingTimer();
         switchingTimerEle.innerHTML = "TIME'S UP!!! Switching Timer Has Ended";
+        //variable which stores the bell alert for when the switching timer runs out
+        var switchingBell = new Audio("audio/notification-bell.wav");
         switchingBell.play();
 
         

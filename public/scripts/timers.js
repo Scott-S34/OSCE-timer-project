@@ -43,9 +43,9 @@ function toggleSwitchTimer(){
 
 function countReadingTimer(){
     var rTimerStart = document.getElementById("readingTimerStart");
-    //var startReadingAudio = new Audio("audio/new-recordings/reading_time_started.wav");
-    //startReadingAudio.play();
-    rTimerStart.innerHTML = "Reading timer has started";
+    var startReadingAudio = new Audio("audio/new-recordings/reading_time_started.wav");
+    startReadingAudio.play();
+    rTimerStart.innerHTML = "Reading timer Has Started";
     readingTimer = setInterval(updateReadingTimer, 1000);
     return readingTimer;
 }
@@ -54,7 +54,7 @@ function triggerTimer(){
     var timerStartAnnoucement = document.getElementById("timerStart");
     var startStationAudio = new Audio("audio/new-recordings/station_started.wav");
     startStationAudio.play();
-    timerStartAnnoucement.innerHTML = "Exam timer has started";
+    timerStartAnnoucement.innerHTML = "Exam Timer Has Started";
     timer = setInterval(updateTimer, 1000);
     return timer;
 }
@@ -89,8 +89,7 @@ var readingTime = readingInInt * 60;
 //variable which will contain the reading timer inside the readingTimer div 
 var readingTimerEle = document.getElementById('readingTimer');
 
-//variable which stores the bell alert for when the timer runs out
-var readingBell = new Audio("audio/happy-bells.wav");
+
 
 var readingTimer;
 
@@ -127,9 +126,11 @@ function updateReadingTimer(){
     if(readingTime < 0){
         stopReadingTimer();
         readingTimerEle.innerHTML = "TIME'S UP!!! Reading Timer Has Ended";
-        readingBell.play();
-        var stopReadingAudio = new Audio("audio/new-recordings/reading_time_ended.wav");
-        stopReadingAudio.play();
+        //variable which stores the bell alert for when the timer runs out
+        // var readingBell = new Audio("audio/happy-bells.wav");
+        // readingBell.play();
+        // var stopReadingAudio = new Audio("audio/new-recordings/reading_time_ended.wav");
+        // stopReadingAudio.play();
         triggerTimer();
 
     }}
@@ -154,7 +155,7 @@ var timerElement = document.getElementById('timer');
 
 
 //variable which stores the bell alert for when the timer runs out
-var bell = new Audio("audio/notification-bell.wav");
+
 
 
 
@@ -324,13 +325,7 @@ function updateTimer() {
     }
 
 
-    // var examTimer = document.getElementById("timer");
-    // if(examTimer.style.display === "block"){
-    //     examTimer.style.display = "none";
-    //     stopTimer();
-    // } else {
-    //      examTimer.style.display = "block";
-    // }
+
 
     
     //if the time for the timer hits 0; the function to stop the timer is called,
@@ -338,11 +333,12 @@ function updateTimer() {
     if(time < 0){
         stopTimer();
         timerElement.innerHTML = "TIME'S UP!!! The Timer Has Ended";
-        bell.play();
-        var stopStationAudio = new Audio("audio/new-recordings/station_ended.wav");
-        stopStationAudio.play();
+        //variable which stores the bell alert for when the timer runs out
+        // var bell = new Audio("audio/notification-bell.wav");
+        // bell.play();
+        // var stopStationAudio = new Audio("audio/new-recordings/station_ended.wav");
+        // stopStationAudio.play();
         triggerSwitchingTimer();
-        //var bell = document.getElementById("bellId").play();
     }}
 
 
@@ -366,14 +362,10 @@ var switchingTime = switchingInInt;
 //variable which will contain the switching timer to be inside the switchingTimer div 
 var switchingTimerEle = document.getElementById('switchingTimer');
     
-//variable which stores the bell alert for when the switching timer runs out
-var switchingBell = new Audio("audio/school-bell.wav");
-
 
 
 
 var switchingTimer;
-//function which initiates the timer counting down
 
     
 
@@ -399,14 +391,18 @@ function updateSwitchingTimer(){
     }
     //if the time for the switching timer hits 0; the function to stop the timer is called,
     // the bell rings and the notification alert saying the reading timer is over appears
-        if(switchingTime < 0){
+    if(switchingTime < 0){
         stopSwitchingTimer();
         switchingTimerEle.innerHTML = "TIME'S UP!!! Switching Timer Has Ended";
+        //variable which stores the bell alert for when the switching timer runs out
+        var switchingBell = new Audio("audio/notification-bell.wav");
         switchingBell.play();
-        stopTimer();
-        
+
         
 }}
+        
+        
+
     
 
 

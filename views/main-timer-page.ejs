@@ -16,17 +16,17 @@
         <br>
         <br>
 
-        <script>
-            //annoucment notification saying the station has started once the page appears
-            alert("Station Started");
-        </script>
+  
 
-        <h3 style = text-align:center>THE EXAM HAS NOW STARTED</h3>
+        <h2 style = text-align:center>THE EXAM HAS NOW STARTED</h2>
+        <br>
+        <br>
+
         <p id = "summary">
-
+            <!--information about the exam-->
+            <%- include('_exam-details') %>
         </p>
-        <!--information about the exam-->
-        <%- include('_exam-details') %>
+       
 
         <br>
         <br>
@@ -84,13 +84,16 @@
 
             <!--button which is wrapped around a link to the home page.
                 When clicked, the exam ends and the user returns to the home page -->
-            <a href =  "/">
+            
                 <button id = "end" onclick = "finishExam()">Finish Examination</button>
-            </a>
+            
         </div>
         <br>
         <br>
         <br>
+        <a href =  "/"> 
+            <button id = "end">Return to the home page</button>
+        </a> 
         <br>
         <br>
        

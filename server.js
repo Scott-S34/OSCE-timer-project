@@ -29,12 +29,12 @@ app.get('/', (req, res) => {
   });
 });
 
-//define a route for the room1 page
+//define a route for the room1 page - not used currently
 app.get('/room1', (req, res) => {
     res.render('room1', {title: 'room1', capacity: 12});
 });
 
-//define a route for the room2 page
+//define a route for the room2 page - not used currently
 app.get('/room2', (req, res) => {
   res.render('room2', {title: 'room2', capacity: 64  });
 });

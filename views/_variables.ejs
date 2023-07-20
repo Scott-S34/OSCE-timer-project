@@ -1,7 +1,13 @@
 <script>
+        //function that plays the examination started clip
         function playExamStartsAudio(){
-                var startExamAudio = new Audio("audio/new-recordings/exam_started.wav");
-                startExamAudio.play();
+                var examStartsAudio = new Audio("audio/new-recordings/exam_started.wav");
+                examStartsAudio.play();
+        }
+
+        //function that pauses the examination started clip
+        function stopAudio(){
+                examStartsAudio.pause();
         }
 
 </script>
@@ -53,8 +59,9 @@
         <input type = "text" name="switching" id = "switching" value="" required> 
         <i class="fa fa-sharp fa-solid fa-asterisk fa-beat" style = "color:red"></i>
         <br>
-        <!-- submit button which will take the user to the timer page once the form is complete -->
-        <input id  = "submission" type = "submit" value = "Submit Details & Start" onclick = "playExamStartsAudio()" >
+        <!-- submit button which will take the user to the timer page once the form is complete
+              hovering over the button alerts the students that the exam has started -->
+        <input id  = "submission" type = "submit" value = "Submit Details & Start" onmouseover = "playExamStartsAudio()" onmouseout = "stopAudio()" >
 
 
 </form>

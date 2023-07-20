@@ -24,18 +24,23 @@
 
 
 <script>
+
+//function that activats the main exam timer and will start counting down when called
 function triggerTimer(){
     var timerStartAnnouncement = document.getElementById("timerStart");
     var startStationAudio = new Audio("audio/new-recordings/station_started.wav");
     startStationAudio.play();
-    timerStartAnnouncement.innerHTML = "Exam Timer has started";
+    timerStartAnnouncement.innerHTML = "Exam Timer Has Started";
     timer = setInterval(updateTimer, 1000);
     return timer;
 }
 
+//function which 
 function triggerSwitchingTimer(){
-    // var sTimerStart= document.createElement("p");
-    // sTimerStart.innerHTML = "Switching timer has started";
+    var sTimerStart = document.getElementById("switchTimerStart");
+    var switchStationAudio = new Audio("audio/new-recordings/switch_station.wav");
+    switchStationAudio.play();
+    sTimerStart.innerHTML = "Switching Timer Has Started";
     switchingTimer = setInterval(updateSwitchingTimer, 1000);
     return switchingTimer;
 }
@@ -59,8 +64,7 @@ var timer;
 //variable which will contain the exam timer inside the timer div 
 var timerElement = document.getElementById('timer');
 
-//variable which stores the bell alert for when the timer runs out
-var bell = new Audio("audio/notification-bell.wav");
+
 
 
 
@@ -239,9 +243,11 @@ function updateTimer() {
     if(time < 0){
         stopTimer();
         timerElement.innerHTML = "TIME'S UP!!! The Timer Has Ended";
-        bell.play();
-        var stopStationAudio = new Audio("audio/new-recordings/station_ended.wav");
-        stopStationAudio.play();
+        //variable which stores the bell alert for when the timer runs out
+        // var bell = new Audio("audio/notification-bell.wav");
+        // bell.play();
+        // var stopStationAudio = new Audio("audio/new-recordings/station_ended.wav");
+        // stopStationAudio.play();
         triggerSwitchingTimer();
     }}
 

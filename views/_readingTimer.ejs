@@ -56,8 +56,6 @@ var readingTimer;
 //variable which will contain the reading timer inside the readingTimer div 
 var readingTimerEle = document.getElementById('readingTimer');
 
-//variable which stores the bell alert for when the timer runs out
-var readingBell = new Audio("audio/happy-bells.wav");
 
 
 
@@ -82,7 +80,7 @@ function countReadingTimer(){
     var rTimerStart = document.getElementById("readingTimerStart");
     var startReadingAudio = new Audio("audio/new-recordings/reading_time_started.wav");
     startReadingAudio.play();
-    rTimerStart.innerHTML = "Reading Timer has started";
+    rTimerStart.innerHTML = "Reading Timer Has Started";
     readingTimer = setInterval(updateReadingTimer, 1000);
     return readingTimer;
 }
@@ -90,10 +88,12 @@ function countReadingTimer(){
 
 
 function triggerTimer(){
-    // var timerStart = document.createElement("p");
-    // timerStart.innerHTML = "Exam timer has started";
-    timer = setInterval(updateTimer, 1000);
-    return timer;
+    var sTimerStart = document.getElementById("switchTimerStart");
+    var switchStationAudio = new Audio("audio/new-recordings/switch_station.wav");
+    switchStationAudio.play();
+    sTimerStart.innerHTML = "Switching Timer Has Started";
+    switchingTimer = setInterval(updateSwitchingTimer, 1000);
+    return switchingTimer;
 }
 
 
@@ -113,7 +113,7 @@ function updateReadingTimer(){
     } else{
         readingTimerEle.innerHTML = readingMinutesInTimer + ":" + readingSecondsInTimer;
     }
-    console.log(readingTime)
+    //console.log(readingTime)
     readingTime--;
 
 //function inside the update funtion which alloes the timer to be stopped
@@ -126,9 +126,11 @@ function updateReadingTimer(){
     if(readingTime < 0){
         stopReadingTimer();
         readingTimerEle.innerHTML = "TIME'S UP!!! Reading Timer Has Ended";
-        readingBell.play();
-        var stopReadingAudio = new Audio("audio/new-recordings/reading_time_ended.wav");
-        stopReadingAudio.play();
+        //variable which stores the bell alert for when the timer runs out
+        // var readingBell = new Audio("audio/happy-bells.wav");
+        // readingBell.play();
+        // var stopReadingAudio = new Audio("audio/new-recordings/reading_time_ended.wav");
+        // stopReadingAudio.play();
         triggerTimer();
     }}
     

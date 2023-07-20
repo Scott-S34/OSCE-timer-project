@@ -69,6 +69,7 @@ footer{
 
 #summary{
     font-weight: bold ;
+    font-size:22pt;
 }
 
 #timer, #readingTimer, #switchingTimer{
